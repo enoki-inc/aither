@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  sway-alpine:
+    container_name: sway-alpine
+    volumes:
+     - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    build:
+      dockerfile: Dockerfile
+      context: .
+    privileged: true
+    network_mode: "host"
