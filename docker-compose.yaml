@@ -1,17 +1,16 @@
-version: '3'
-
+version: "2.4"
 services:
-  sway-alpine:
-    container_name: sway-alpine
-    volumes:
-     - /sys/fs/cgroup:/sys/fs/cgroup:rw
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - capabilities: [gpu]
-    build:
-      dockerfile: Dockerfile
-      context: .
-    privileged: true
-    network_mode: "host"
+    tailscale:
+        hostname: swayservice                         # This will become the tailscale device name
+        image: richnorth/tailscale:v0.99.1
+        volumes:
+            - "./tailscale_var_lib:/var/lib"        # State data will be stored in this directory
+            - "/dev/net/tun:/dev/net/tun"           # Required for tailscale to work
+        cap_add:                                    # Required for tailscale to work
+          - net_admin
+          - sys_module
+        command: tailscaled
+
+    myservice-container:
+        build: .                               # Your image goes here
+        network_mode: service:tailscale
