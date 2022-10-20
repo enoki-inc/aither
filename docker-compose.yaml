@@ -1,20 +1,50 @@
 version: "2.4"
 services:
-    tailscale:
-        privileged: true
-        hostname: swayservice                         # This will become the tailscale device name
-        image: richnorth/tailscale:v0.99.1
-        volumes:
-        #    - "/lib/modules:/lib/modules"
-            - "./tailscale_var_lib:/var/lib"        # State data will be stored in this directory
-            - "/dev/net/tun:/dev/net/tun"           # Required for tailscale to work
-        cap_add:                                    # Required for tailscale to work
-          - net_admin
-          - sys_module
-        command: tailscaled #--state mem
+  tailscale:
+    hostname: aither                         # This will become the tailscale device name
+    image: tailscale/tailscale:stable
+    volumes:
+      - "./tailscale_var_lib:/var/lib"        # State data will be stored in this directory
+      - "/dev/net/tun:/dev/net/tun"           # Required for tailscale to work
+    cap_add:                                    # Required for tailscale to work
+      - net_admin
+      - sys_module
+    privileged: true
+#    environment:
+#      - TAILSCALE_AUTH_KEY=tskey-auth-kUBxFU5CNTRL-GGAfhPhcZoANDduorkPJiAenZSuB9ixpX
+    env_file:
+      - tailscale.env
+    ports:
+      - 5900:5900
+      - 5901:5901
+      - 7023:7023
+    command: tailscaled
 
-    swayservice-container:
-        privileged: true
-        image: nginx
-        #build: .                               # Your image goes here
-        network_mode: service:tailscale
+  aither:
+    image: aither-baseimage
+    build: .
+    container_name: aither-baseimage
+    privileged: true #optional
+    environment:
+    #  - PUID=1000
+    #  - PGID=1000
+    #  - TZ=US/Central  
+      - XDG_RUNTIME_DIR=/home/dev
+      - WAYLAND_DISPLAY=$WAYLAND_DISPLAY 
+      - WLR_BACKENDS=headless
+      - WLR_LIBINPUT_NO_DEVICES=1 
+      - --user= dev
+    command: dbus-run-session -- sway
+    user: dev
+    tty: true
+    stdin_open: true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock #optional
+      - $XDG_RUNTIME_DIR/$WAYLAND_DISPLAY:/home/1000/$WAYLAND_DISPLAY
+#    ports:
+#     - 5900:5900
+#     - 5901:5901
+#     - 7023:7023
+    network_mode: service:tailscale
+    #shm_size: "1gb" #optional
+    #restart: unless-stopped
