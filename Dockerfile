@@ -10,10 +10,10 @@ ENV XDG_RUNTIME_DIR=/tmp \
 # Install our modified sway that extends per-container border colors
 COPY ./x86_64 /etc/packages/
 RUN apk add --allow-untrusted \
-    /etc/packages/sway-aither-1.7-r4.apk \
-    /etc/packages/sway-aither-doc-1.7-r4.apk \
-    /etc/packages/sway-aither-dbg-1.7-r4.apk \
-    /etc/packages/sway-aither-wallpapers-1.7-r4.apk
+    /etc/packages/sway-aither-1.7.1-r4.apk \
+    /etc/packages/sway-aither-doc-1.7.1-r4.apk \
+    /etc/packages/sway-aither-dbg-1.7.1-r4.apk \
+    /etc/packages/sway-aither-wallpapers-1.7.1-r4.apk
 
 ## Sway basic packages
 RUN apk update \
