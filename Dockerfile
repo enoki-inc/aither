@@ -82,6 +82,10 @@ RUN apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/co
     slurp \
     wl-clipboard 
 
+RUN mkdir -p /etc/sway-launcher-desktop && \
+    curl -o /tmp/sway-launcher-desktop.tar.gz -L "https://github.com/Biont/sway-launcher-desktop/archive/refs/tags/v1.6.0.tar.gz" && \
+    tar xf /tmp/sway-launcher-desktop.tar.gz -C /etc/sway-launcher-desktop --strip-components=1
+    
 ENV USER="dev"
 RUN apk add -X https://dl-cdn.alpinelinux.org/alpine/v3.16/main -u alpine-keys --allow-untrusted
 RUN adduser -D $USER && echo "$USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/wheel
