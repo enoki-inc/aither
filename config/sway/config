@@ -40,17 +40,17 @@ seat seat10 attach "10"
 
 
 set $ip 0.0.0.0  
-exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat0 $id 5900
-exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat1 $id 5901
-exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat2 $id 5902
-exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat3 $id 5903
-exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat4 $id 5904
-exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat5 $id 5905
-exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat6 $id 5906
-exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat7 $id 5907
-exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat8 $id 5908
-exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat9 $id 5909
-exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat10 $id 5910
+exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat0 $ip 5900
+exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat1 $ip 5901
+exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat2 $ip 5902
+exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat3 $ip 5903
+exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat4 $ip 5904
+exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat5 $ip 5905
+exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat6 $ip 5906
+exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat7 $ip 5907
+exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat8 $ip 5908
+exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat9 $ip 5909
+exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat10 $ip 5910
 #exec socat TCP-LISTEN:7023,fork UNIX-CONNECT:/tmp/sway-ipc.sock
 
 #exec geany
