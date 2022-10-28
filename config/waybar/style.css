@@ -1,0 +1,106 @@
+/*
+ * Copyright (C) 2022 Enoki Inc.
+ * Everyone is permitted to copy and distribute copies of this file under GNU-GPL3
+*/
+
+/** ********** Fonts ********** **/
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 32px;
+}
+
+/** ********** Waybar Window ********** **/
+window#waybar {
+    background-color: transparent;
+    color: #D8DEE9;
+    border-right: 0px solid #424854;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.5;
+}
+
+window#waybar.empty {
+}
+window#waybar.solo {
+}
+window#waybar.thunar {
+}
+window#waybar.geany {
+}
+
+/** ********** Custom ********** **/
+
+#custom-seat1 {
+    background-color: #93a1a1;
+    border-radius: 12px 12px 12px 12px;
+    padding: 10px 5px 5px 5px;
+    margin-left: 15px;
+    margin-right: 15px;
+
+}
+#custom-seat2 {
+    background-color: #dc322f;
+    border-radius: 12px 12px 12px 12px;
+    padding: 10px 5px 5px 5px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+#custom-seat3 {
+    background-color: #268bd2;
+    border-radius: 12px 12px 12px 12px;
+    padding: 10px 5px 5px 5px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+#custom-seat4 {
+    background-color: #859900;
+    border-radius: 12px 12px 12px 12px;
+    padding: 10px 5px 5px 5px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+#custom-seat5 {
+    background-color: #b58900;
+    border-radius: 12px 12px 12px 12px;
+    padding: 10px 5px 5px 5px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+#custom-seat6 {
+    background-color: #d33682;
+    border-radius: 12px 12px 12px 12px;
+    padding: 10px 5px 5px 5px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+#custom-seat7 {
+    background-color: #2aa198;
+    border-radius: 12px 12px 12px 12px;
+    padding: 10px 5px 5px 5px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+#custom-seat8 {
+    background-color: #cb4b16;
+    border-radius: 12px 12px 12px 12px;
+    padding: 10px 5px 5px 5px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+#custom-seat9 {
+    background-color: #6c71c4;
+    border-radius: 12px 12px 12px 12px;
+    padding: 10px 5px 5px 5px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+#custom-seat10 {
+    background-color: #002b36;
+    border-radius: 12px 12px 12px 12px;
+    padding: 10px 5px 5px 5px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
