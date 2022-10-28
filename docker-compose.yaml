@@ -4,14 +4,12 @@ services:
     hostname: aither                         # This will become the tailscale device name
     image: tailscale/tailscale:stable
     volumes:
-      - "./tailscale_var_lib:/var/lib"        # State data will be stored in this directory
-      - "/dev/net/tun:/dev/net/tun"           # Required for tailscale to work
-    cap_add:                                    # Required for tailscale to work
+      - "./tailscale_var_lib:/var/lib"       # State data will be stored in this directory
+      - "/dev/net/tun:/dev/net/tun"          # Required for tailscale to work
+    cap_add:                                 # Required for tailscale to work
       - net_admin
       - sys_module
     privileged: true
-#    environment:
-#      - TAILSCALE_AUTH_KEY=tskey-auth-kUBxFU5CNTRL-GGAfhPhcZoANDduorkPJiAenZSuB9ixpX
     env_file:
       - tailscale.env
     ports:
@@ -26,7 +24,6 @@ services:
       - 5908:5908
       - 5909:5909
       - 5910:5910
-      - 7023:7023
     command: tailscaled
 
   aither:
@@ -35,9 +32,6 @@ services:
     container_name: aither-baseimage
     privileged: true #optional
     environment:
-    #  - PUID=1000
-    #  - PGID=1000
-    #  - TZ=US/Central  
       - XDG_RUNTIME_DIR=/home/dev
       - WAYLAND_DISPLAY=$WAYLAND_DISPLAY 
       - WLR_BACKENDS=headless
@@ -62,7 +56,6 @@ services:
 #      - 5908:5908
 #      - 5909:5909
 #      - 5910:5910
-#     - 7023:7023
     network_mode: service:tailscale
     #shm_size: "1gb" #optional
     #restart: unless-stopped
