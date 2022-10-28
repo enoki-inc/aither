@@ -1,0 +1,28 @@
+// Copyright (C) 2022 Enoki
+// Everyone is permitted to copy and distribute copies of this file under GNU-GPL3
+//
+// Waybar config file
+{
+    "include": "~/.config/waybar/modules",
+    "name": "top-bar",                  // Waybar name
+    "id": "top-bar",                            // Waybar id
+    "layer": "top",                             // Waybar at top layer
+    "mode": "dock",                             // Display mode (dock|hide|invisible|overlay)
+    "exclusive": true,                          // Request an exclusive zone from the compositor
+    "passthrough": false,                       // Pass any pointer events to the window under the bar
+    "position": "top",                  // Waybar position (top|bottom|left|right)
+    "height": "",                                       // Waybar height (to be removed for auto height)
+    "width": "",                                        // Waybar width (empty for auto width)
+    "spacing": 0,                                       // Gaps between modules
+    "margin": 0,                                        // Space around the bar
+    "margin-top": 0,                            // Space above the bar
+    "margin-bottom": 0,                         // Space below the bar
+    "margin-left": 0,                           // Space to the left of the bar
+    "margin-right": 0,                          // Space to the right of the bar
+    "fixed-center": true,                       // Center modules position
+    "ipc": true,                                        // Control waybar with `swaymsg bar` commands
+    // Choose the order of the modules
+    // "modules-left": [],
+    // "modules-center": [],
+    "modules-right": ["custom/seat1", "custom/seat2", "custom/seat3", "custom/seat4", "custom/seat5", "custom/seat6", "custom/seat7", "custom/seat8", "custom/seat9", "custom/seat10" ],
+}
