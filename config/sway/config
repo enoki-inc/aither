@@ -20,23 +20,37 @@ set $term alacritty
 # on the original workspace that the command was run on.
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 #set $menu rofi
-### autostart
-#exec swaymsg create_output HEADLESS-1
-#exec swaymsg create_output HEADLESS-2
 
-#exec swaymsg seat seat2 attach "2"
 
 output HEADLESS-1  pos 0 0 
-#output HEADLESS-2  pos 0 0
 
-workspace 1 output HEADLESS-1 HEADLESS-2
+workspace 1 output HEADLESS-1
 
-seat seat0 attach "1"
-seat seat1 attach "2"
+seat seat0 attach "0"
+seat seat1 attach "1"
+seat seat2 attach "2"
+seat seat3 attach "3"
+seat seat4 attach "4"
+seat seat5 attach "5"
+seat seat6 attach "6"
+seat seat7 attach "7"
+seat seat8 attach "8"
+seat seat9 attach "9"
+seat seat10 attach "10"
 
-set $access 0.0.0.0 5900 
-exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat0 $access
-exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat1 0.0.0.0 5901
+
+set $ip 0.0.0.0  
+exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat0 $id 5900
+exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat1 $id 5901
+exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat2 $id 5902
+exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat3 $id 5903
+exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat4 $id 5904
+exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat5 $id 5905
+exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat6 $id 5906
+exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat7 $id 5907
+exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat8 $id 5908
+exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat9 $id 5909
+exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat10 $id 5910
 #exec socat TCP-LISTEN:7023,fork UNIX-CONNECT:/tmp/sway-ipc.sock
 
 #exec geany
