@@ -1,0 +1,70 @@
+// Copyright (C) 2022 Enoki Inc.
+// Everyone is permitted to copy and distribute copies of this file under GNU-GPL3
+//
+
+
+{
+// seat1
+  "custom/seat1": {
+  "format": " 🦄 ",
+  "tooltip": false,
+  "on-click": "swaymsg mark 'seat1'",
+  },
+// seat2
+  "custom/seat2": {
+  "format": " 🦀 ",
+  "tooltip": false,
+  "on-click": "swaymsg mark 'seat2'",
+  },
+// seat3
+  "custom/seat3": {
+  "format": " 🐬 ",
+  "tooltip": false,
+  "on-click": "swaymsg mark 'seat3'",
+  },
+// seat4
+  "custom/seat4": {
+  "format": " 🐲 ",
+  "tooltip": false,
+  "on-click": "swaymsg mark 'seat4'",
+  },
+// seat5
+  "custom/seat5": {
+  "format": " 🦁 ",
+  "tooltip": false,
+  "on-click": "swaymsg mark 'seat5'",
+  },
+// seat6
+  "custom/seat6": {
+  "format": " 🦋 ",
+  "tooltip": false,
+  "on-click": "swaymsg mark 'seat6'",
+  },
+// seat7
+  "custom/seat7": {
+  "format": " 🐰 ",
+  "tooltip": false,
+  "on-click": "swaymsg mark 'seat7'",
+  },
+// seat8
+  "custom/seat8": {
+  "format": " 🦊 ",
+  "tooltip": false,
+  "on-click": "swaymsg mark 'seat8'",
+  },
+// seat9
+  "custom/seat9": {
+  "format": " 🦩 ",
+  "tooltip": false,
+  "on-click": "swaymsg mark 'seat9'",
+  },
+// seat10
+  "custom/seat10": {
+  "format": " 🐻 ",
+  "tooltip": false,
+  "on-click": "swaymsg mark 'seat10'",
+  },
+    }
+  }
+
+}
