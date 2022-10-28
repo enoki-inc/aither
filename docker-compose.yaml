@@ -17,6 +17,15 @@ services:
     ports:
       - 5900:5900
       - 5901:5901
+      - 5902:5902
+      - 5903:5903
+      - 5904:5904
+      - 5905:5905
+      - 5906:5906
+      - 5907:5907
+      - 5908:5908
+      - 5909:5909
+      - 5910:5910
       - 7023:7023
     command: tailscaled
 
@@ -42,8 +51,17 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock #optional
       - $XDG_RUNTIME_DIR/$WAYLAND_DISPLAY:/home/1000/$WAYLAND_DISPLAY
 #    ports:
-#     - 5900:5900
-#     - 5901:5901
+#      - 5900:5900
+#      - 5901:5901
+#      - 5902:5902
+#      - 5903:5903
+#      - 5904:5904
+#      - 5905:5905
+#      - 5906:5906
+#      - 5907:5907
+#      - 5908:5908
+#      - 5909:5909
+#      - 5910:5910
 #     - 7023:7023
     network_mode: service:tailscale
     #shm_size: "1gb" #optional
