@@ -18,8 +18,9 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
-#set $menu rofi
+#set $menu dmenu_path | dmenu | xargs swaymsg exec --
+for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 10
+set $menu exec $term --class=launcher -e /etc/sway-launcher-desktop/sway-launcher-desktop.sh
 
 
 output HEADLESS-1  pos 0 0 
@@ -55,11 +56,12 @@ exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat10 $ip 5910
 
 #exec geany
 exec epiphany
-exec waybar
+exec waybar --config /etc/waybar/config
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+#output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg /usr/share/backgrounds/sway/aither_1920x1080.png fill
 #
 # Example configuration:
 #
