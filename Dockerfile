@@ -1,10 +1,8 @@
 FROM alpine:latest
-#FROM ghcr.io/linuxserver/baseimage-alpine:3.15
 
 ENV XDG_RUNTIME_DIR=/tmp \
     WLR_BACKENDS=headless \
     WLR_LIBINPUT_NO_DEVICES=1 \
-#    WLR_HEADLESS_OUTPUTS=2 \
     SWAYSOCK=/tmp/sway-ipc.sock
 
 # Install our modified sway that extends per-container border colors
@@ -15,7 +13,6 @@ RUN apk add --allow-untrusted \
     /etc/packages/sway-aither-dbg-1.7.1-r4.apk \
     /etc/packages/sway-aither-wallpapers-1.7.1-r4.apk
 
-## Sway basic packages
 RUN apk update \
     && apk --no-cache --update add build-base
 RUN apk add \
@@ -54,7 +51,6 @@ RUN apk add \
 RUN apk update \
     elogind
 
-## Wayland
 RUN apk add \
     aml-dev \
     font-jetbrains-mono-nerd \
@@ -91,14 +87,11 @@ RUN apk add -X https://dl-cdn.alpinelinux.org/alpine/v3.16/main -u alpine-keys -
 RUN adduser -D $USER && echo "$USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/wheel
 RUN echo "dev:dev" | chpasswd
 
-#COPY ./xdg_runtime_dir.sh root/etc/profile.d/xdg_runtime_dir.sh
 COPY ./config/sway/config /etc/sway/config
+COPY ./config/waybar /etc/waybar
 COPY ./config/wayvnc/config /etc/wayvnc/config
 
-EXPOSE 5900
-EXPOSE 5901
-EXPOSE 7023
-
+EXPOSE 5900-5910
 
 USER $USER
 COPY entrypoint.sh /
