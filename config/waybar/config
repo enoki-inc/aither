@@ -3,7 +3,7 @@
 //
 // Waybar config file
 {
-    "include": "~/.config/waybar/modules",
+    "include": "etc/waybar/modules",
     "name": "top-bar",                  // Waybar name
     "id": "top-bar",                            // Waybar id
     "layer": "top",                             // Waybar at top layer
