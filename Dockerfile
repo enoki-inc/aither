@@ -4,19 +4,7 @@ ENV XDG_RUNTIME_DIR=/tmp \
     WLR_BACKENDS=headless \
     WLR_LIBINPUT_NO_DEVICES=1 \
     SWAYSOCK=/tmp/sway-ipc.sock
-
-# Install our modified sway that extends per-container border colors and custom mouse cursors
-RUN mkdir -p /etc/aither-tools && \
-    curl -o /tmp/aither-tools.tar.gz -L "https://github.com/enoki-inc/aither-tools/archive/refs/tags/1.1.tar.gz" && \
-    tar xf /tmp/aither-tools.tar.gz -C /etc/aither-tools --strip-components=1 && \
-    mv /etc/aither-tools/Bibata-Cursors /usr/share/icons
- 
-RUN apk add --allow-untrusted \
-    /etc/aither-tools/packages/sway-aither-1.7.1-r4.apk \
-    /etc/aither-tools/packages/sway-aither-doc-1.7.1-r4.apk \
-    /etc/aither-tools/packages/sway-aither-dbg-1.7.1-r4.apk \
-    /etc/aither-tools/packages/sway-aither-wallpapers-1.7.1-r4.apk
-
+    
 RUN apk update \
     && apk --no-cache --update add build-base
 RUN apk add \
@@ -59,6 +47,7 @@ RUN apk add \
     aml-dev \
     font-jetbrains-mono-nerd \
     font-noto \
+    nerd-fonts \
     git \
     fzf \
     mako \
@@ -82,6 +71,18 @@ RUN apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/co
     slurp \
     wl-clipboard 
 
+# Install our modified sway that extends per-container border colors and custom mouse cursors
+RUN mkdir -p /etc/aither-tools && \
+    curl -o /tmp/aither-tools.tar.gz -L "https://github.com/enoki-inc/aither-tools/archive/refs/tags/1.1.tar.gz" && \
+    tar xf /tmp/aither-tools.tar.gz -C /etc/aither-tools --strip-components=1 && \
+    mv /etc/aither-tools/Bibata-Cursors/* /usr/share/icons
+ 
+RUN apk add --allow-untrusted \
+    /etc/aither-tools/packages/sway-aither-1.7.1-r4.apk \
+    /etc/aither-tools/packages/sway-aither-doc-1.7.1-r4.apk \
+    /etc/aither-tools/packages/sway-aither-dbg-1.7.1-r4.apk \
+    /etc/aither-tools/packages/sway-aither-wallpapers-1.7.1-r4.apk
+    
 RUN mkdir -p /etc/sway-launcher-desktop && \
     curl -o /tmp/sway-launcher-desktop.tar.gz -L "https://github.com/Biont/sway-launcher-desktop/archive/refs/tags/v1.6.0.tar.gz" && \
     tar xf /tmp/sway-launcher-desktop.tar.gz -C /etc/sway-launcher-desktop --strip-components=1
