@@ -54,8 +54,7 @@ exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat9 $ip 5909
 exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat10 $ip 5910
 #exec socat TCP-LISTEN:7023,fork UNIX-CONNECT:/tmp/sway-ipc.sock
 
-#exec geany
-exec epiphany
+#exec epiphany
 exec waybar --config /etc/waybar/config
 ### Output configuration
 #
