@@ -5,13 +5,17 @@ ENV XDG_RUNTIME_DIR=/tmp \
     WLR_LIBINPUT_NO_DEVICES=1 \
     SWAYSOCK=/tmp/sway-ipc.sock
 
-# Install our modified sway that extends per-container border colors
-COPY ./x86_64 /etc/packages/
+# Install our modified sway that extends per-container border colors and custom mouse cursors
+RUN mkdir -p /etc/aither-tools && \
+    curl -o /tmp/aither-tools.tar.gz -L "https://github.com/enoki-inc/aither-tools/archive/refs/tags/1.1.tar.gz" && \
+    tar xf /tmp/aither-tools.tar.gz -C /etc/aither-tools --strip-components=1 && \
+    mv /etc/aither-tools/Bibata-Cursors /usr/share/icons
+ 
 RUN apk add --allow-untrusted \
-    /etc/packages/sway-aither-1.7.1-r4.apk \
-    /etc/packages/sway-aither-doc-1.7.1-r4.apk \
-    /etc/packages/sway-aither-dbg-1.7.1-r4.apk \
-    /etc/packages/sway-aither-wallpapers-1.7.1-r4.apk
+    /etc/aither-tools/packages/sway-aither-1.7.1-r4.apk \
+    /etc/aither-tools/packages/sway-aither-doc-1.7.1-r4.apk \
+    /etc/aither-tools/packages/sway-aither-dbg-1.7.1-r4.apk \
+    /etc/aither-tools/packages/sway-aither-wallpapers-1.7.1-r4.apk
 
 RUN apk update \
     && apk --no-cache --update add build-base
