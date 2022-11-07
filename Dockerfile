@@ -48,6 +48,8 @@ RUN apk add \
     font-jetbrains-mono-nerd \
     font-noto \
     nerd-fonts \
+    ttf-font-awesome \
+    font-noto-extra \
     git \
     fzf \
     mako \
