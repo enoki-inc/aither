@@ -47,9 +47,6 @@ RUN apk add \
     aml-dev \
     font-jetbrains-mono-nerd \
     font-noto \
-    nerd-fonts \
-    ttf-font-awesome \
-    font-noto-extra \
     git \
     fzf \
     mako \
@@ -71,7 +68,8 @@ RUN apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/co
     grim \
     grimshot \
     slurp \
-    wl-clipboard 
+    wl-clipboard \
+    font-noto-emoji
 
 # Install our modified sway that extends per-container border colors and custom mouse cursors
 RUN mkdir -p /etc/aither-tools && \
