@@ -57,7 +57,8 @@ RUN apk add \
     socat \
     waybar \
     wayvnc \
-    geany
+    geany \
+    nautilus
 
 RUN apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing \
     clipman \
@@ -69,8 +70,7 @@ RUN apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/co
     grimshot \
     slurp \
     wl-clipboard \
-    font-noto-emoji \
-    nautilus
+    font-noto-emoji
 
 # Install our modified sway that extends per-container border colors and custom mouse cursors
 RUN mkdir -p /etc/aither-tools && \
