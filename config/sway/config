@@ -1,29 +1,202 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
+# Default config for sway-aither
 # Read `man 5 sway` for a complete reference.
 
-### Variables
-#
-# Logo key. Use Mod1 for Alt.
-set $mod Mod1
-# Home row direction keys, like vim
-set $left h
-set $down j
-set $up k
-set $right l
-# Your preferred terminal emulator
-set $term alacritty
-# Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
+
+# Base16 Colorscheme, default to solarized 
+set $base00 #002b36
+set $base01 #073642
+set $base02 #586e75
+set $base03 #657b83
+set $base04 #839496
+set $base05 #93a1a1
+set $base06 #eee8d5
+set $base07 #fdf6e3
+set $base08 #dc322f
+set $base09 #cb4b16
+set $base0A #b58900
+set $base0B #859900
+set $base0C #2aa198
+set $base0D #268bd2
+set $base0E #6c71c4
+set $base0F #d33682
+
+# Not sure the brackets work here, also should we be using absolute directories
+set $font 'JetBrainsMono Nerd Font'
+set $font-size 12
+
+set $floating-border-size 5
+set $tiling-inner-gaps 10
+
+set $gnome-cursor-theme 'Bibata-Modern-Classic'
+# Not sure if we should be using absolute directories for the gtk
+# it's usually found in .themes/Base16
+set $gnome-gtk-theme 'Base16'
+
+# The custom cursors are typically found at ~/.icons as per XDG standards
+# Rohan we should make sure this works with aither, might need full path to work?
+# Note that the cursor colors match the per-window marks for border colors in sway-aither
+set $seat0-cursor Bibata-Modern-Classic 
+set $seat1-cursor Bibata-Modern-Light 
+set $seat2-cursor Bibata-Modern-Red 
+set $seat3-cursor Bibata-Modern-Blue 
+set $seat4-cursor Bibata-Modern-Green
+set $seat5-cursor Bibata-Modern-Yellow
+set $seat6-cursor Bibata-Modern-Purple
+set $seat7-cursor Bibata-Modern-Cyan 
+set $seat8-cursor Bibata-Modern-Orange
+set $seat9-cursor Bibata-Modern-Magenta
+set $seat10-cursor Bibata-Modern-Dark 
+
+set $cursor-size 24
+
+# This should be compatible with the unpatched version of Sway
+
+##### Applying Dotfiles #####
+
+## General window border colors
+# Property Name           Border  BG      Text    Indicator Child-border
+client.focused            $base05 $base0D $base00 $base0D   $base0D
+client.unfocused          $base01 $base00 $base05 $base01   $base01
+client.focused_inactive   $base01 $base01 $base05 $base03   $base01
+client.urgent             $base08 $base08 $base00 $base08   $base08
+client.placeholder        $base00 $base00 $base05 $base00   $base00
+client.background         $base07
+
+# Mouse behavior
+focus_follows_mouse no 
+
+# Window activation focus (smart|urgent|focus|none)
+focus_on_window_activation none
+
+# Font
+font pango:$font $font-size
+
+
+# Gaps
+smart_gaps off
+gaps inner $tiling-inner-gaps
+
+# Borders
+default_border pixel $floating-border-size
+default_floating_border normal
+hide_edge_borders smart
+
+##### Autostart behavior #####
+
+# We are using an external wallpaper manager called azote, it's available on rpm-ostree and apk
+# it helps us graphically manage per-output wallpapers dynamically.
+# The user's selected wallpaper goes there
+#set $wallpaper ~/.local/share/backgrounds/default.png
+#exec swaybg -i $wallpaper -m fill -o "*"
+#exec ~/.azotebg
+# Wallpaper fallback
+exec swaybg -c '#000000'
+
+# Notification system
+## Rohan make sure this is the right directory
+#exec mako --config ~/.config/mako/config
+
+# Gnome Settings
+set $gnome-schema org.gnome.desktop.interface
+exec_always {
+        gsettings set $gnome-schema cursor-theme $gnome-cursor-theme
+        gsettings set $gnome-schema gtk-theme 
+        #gsettings set $gnome-schema icon-theme 'Your icon theme'
+        #gsettings set $gnome-schema font-name 'Your font name'
+        gsettings set org.gnome.desktop.wm.preferences button-layout ""
+
+
+# Mapping colored cursors to seats
+seat seat0 xcursor_theme  $seat0-cursor  $cursor-size
+seat seat1 xcursor_theme  $seat1-cursor  $cursor-size
+seat seat2 xcursor_theme  $seat2-cursor  $cursor-size
+seat seat3 xcursor_theme  $seat3-cursor  $cursor-size
+seat seat4 xcursor_theme  $seat4-cursor  $cursor-size
+seat seat5 xcursor_theme  $seat5-cursor  $cursor-size
+seat seat6 xcursor_theme  $seat6-cursor  $cursor-size
+seat seat7 xcursor_theme  $seat7-cursor  $cursor-size
+seat seat8 xcursor_theme  $seat8-cursor  $cursor-size
+seat seat9 xcursor_theme  $seat9-cursor  $cursor-size
+seat seat10 xcursor_theme $seat10-cursor $cursor-size
+
+seat seat0 fallback true
+
+
+# Move focused window
+bindsym {{Mod1+h}} exec {{move left 50}}
+bindsym Mod1+j move down 50
+bindsym Mod1+k move up 50
+bindsym Mod1+l move right 50
+
+# Same with arrow keys
+bindsym Mod1+Left move left 100
+bindsym Mod1+Down move down 100
+bindsym Mod1+Up move up 100
+bindsym Mod1+Right move right 100
+
+# Move focus around
+bindsym Mod1+Shift+h exec swaymsg focus left
+bindsym Mod1+Shift+j exec swaymsg focus down
+bindsym Mod1+Shift+k exec swaymsg focus up
+bindsym Mod1+Shift+l exec swaymsg focus right
+
+# Resize window
+bindsym Mod1+Shift+Left resize shrink width 50
+bindsym Mod1+Shift+Down resize shrink height 50
+bindsym Mod1+Shift+Up resize grow height 50
+bindsym Mod1+Shift+Right resize grow width 50
+
+# Kill focused window
+bindsym Mod1+Shift+q kill
+
+# Spawn an alacritty terminal
+set $host alacritty -o window.opacity=0.8 --config-file ~/.config/alacritty/host.yml
+bindsym Mod1+Shift+Return exec $host
+
+# Toggle opacity
+bindsym Mod1+o              opacity plus 0.1
+bindsym Mod1+Shift+o        opacity minus 0.1
+
+# Toggle focus between tiling mode and floating mode:
+bindsym Mod1+Tab floating toggle
+
+# Toggle focus between tiling area and floating area:
+bindsym Mod1+Shift+Tab focus mode_toggle
+
+# Toggle window orientation
+bindsym Mod1+BackSpace split toggle
+
+# Focus all tiled windows
+bindsym Mod1+a focus parent
+
+# Alternate sticky
+bindsym Mod1+Shift+a sticky toggle
+
+# Make the current focus fullscreen
+bindsym Mod1+f fullscreen
+
+# Resizing to set sizes:
+bindsym Mod1+Shift+f    resize set 900 600
+bindsym Mod1+g          resize set 900 500
+bindsym Mod1+Shift+g    resize set 500 500
+
+# Dismiss all notifications
+bindsym Mod1+period exec makoctl dismiss -a
+
+### Window settings
+for_window [app_id=".*"] floating enable, border pixel 4,  resize set height 100ppt width 100ppt
+#, move window to workspace 1
+for_window [app_id="Alacritty"] floating enable, border pixel 3,  resize set height 800 width 1200
+
+# New windows do not capture focus by default
+no_focus [app_id=".*"]
+
+
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
 for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 10
 set $menu exec $term --class=launcher -e /etc/sway-launcher-desktop/sway-launcher-desktop.sh
 
-
-output HEADLESS-1  pos 0 0 
+output HEADLESS-1  pos 0 0 res 1920x1080
 
 workspace 1 output HEADLESS-1
 
@@ -39,7 +212,6 @@ seat seat8 attach "8"
 seat seat9 attach "9"
 seat seat10 attach "10"
 
-
 set $ip 0.0.0.0  
 exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat0 $ip 5900
 exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat1 $ip 5901
@@ -54,191 +226,32 @@ exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat9 $ip 5909
 exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat10 $ip 5910
 #exec socat TCP-LISTEN:7023,fork UNIX-CONNECT:/tmp/sway-ipc.sock
 
-#exec epiphany
 exec waybar --config /etc/waybar/config
-### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-#output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output * bg /usr/share/backgrounds/sway/aither_1920x1080.png fill
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
 
-### Idle configuration
-#
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
+## Multiplayer window border colors 
+# this still needs testing, make sure it's "mark"
+for_window [con_mark="seat1"] client.focused $base05 $base05 $base05 $base05 $base05
+for_window [con_mark="seat2"] client.focused $base08 $base08 $base08 $base08 $base08
+for_window [con_mark="seat3"] client.focused $base0D $base0D $base0D $base0D $base0D 
+for_window [con_mark="seat4"] client.focused $base0B $base0B $base0B $base0B $base0B 
+for_window [con_mark="seat6"] client.focused $base0F $base0F $base0F $base0F $base0F
+for_window [con_mark="seat5"] client.focused $base0A $base0A $base0A $base0A $base0A 
+for_window [con_mark="seat6"] client.focused $base0F $base0F $base0F $base0F $base0F
+for_window [con_mark="seat7"] client.focused $base0C $base0C $base0C $base0C $base0C 
+for_window [con_mark="seat8"] client.focused $base09 $base09 $base09 $base09 $base09 
+for_window [con_mark="seat9"] client.focused $base0E $base0E $base0E $base0E $base0E 
+for_window [con_mark="seat10"] client.focused $base00 $base00 $base00 $base00 $base00 
 
-### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
-
-### Key bindings
-#
-# Basics:
-#
-    # Start a terminal
-    bindsym $mod+Return exec $term
-
-    # Kill focused window
-    bindsym $mod+Shift+q kill
-
-    # Start your launcher
-    bindsym $mod+d exec $menu
-
-    # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
-    # Despite the name, also works for non-floating windows.
-    # Change normal to inverse to use left mouse button for resizing and right
-    # mouse button for dragging.
-    floating_modifier $mod normal
-
-    # Reload the configuration file
-    bindsym $mod+Shift+c reload
-
-    # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
-#
-# Moving around:
-#
-    # Move your focus around
-    bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
-    bindsym $mod+$right focus right
-    # Or use $mod+[up|down|left|right]
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
-
-    # Move the focused window with the same, but add Shift
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
-    bindsym $mod+Shift+$right move right
-    # Ditto, with arrow keys
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
-#
-# Workspaces:
-#
-    # Switch to workspace
-    bindsym $mod+1 workspace number 1
-    bindsym $mod+2 workspace number 2
-    bindsym $mod+3 workspace number 3
-    bindsym $mod+4 workspace number 4
-    bindsym $mod+5 workspace number 5
-    bindsym $mod+6 workspace number 6
-    bindsym $mod+7 workspace number 7
-    bindsym $mod+8 workspace number 8
-    bindsym $mod+9 workspace number 9
-    bindsym $mod+0 workspace number 10
-    # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace number 1
-    bindsym $mod+Shift+2 move container to workspace number 2
-    bindsym $mod+Shift+3 move container to workspace number 3
-    bindsym $mod+Shift+4 move container to workspace number 4
-    bindsym $mod+Shift+5 move container to workspace number 5
-    bindsym $mod+Shift+6 move container to workspace number 6
-    bindsym $mod+Shift+7 move container to workspace number 7
-    bindsym $mod+Shift+8 move container to workspace number 8
-    bindsym $mod+Shift+9 move container to workspace number 9
-    bindsym $mod+Shift+0 move container to workspace number 10
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
-#
-# Layout stuff:
-#
-    # You can "split" the current object of your focus with
-    # $mod+b or $mod+v, for horizontal and vertical splits
-    # respectively.
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
-
-    # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
-
-    # Make the current focus fullscreen
-    bindsym $mod+f fullscreen
-
-    # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
-
-    # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
-
-    # Move focus to the parent container
-    bindsym $mod+a focus parent
-#
-# Scratchpad:
-#
-    # Sway has a "scratchpad", which is a bag of holding for windows.
-    # You can send windows there and get them back later.
-
-    # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
-
-    # Show the next scratchpad window or hide the focused scratchpad window.
-    # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show
-#
-# Resizing containers:
-#
-mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
-
-    # Ditto, with arrow keys
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
-
-    # Return to default mode
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+r mode "resize"
-
-# window
-
-# for_window [app_id=""] floating enable
-for_window [app_id=".*"] floating enable, border pixel 4, resize set height 100ppt width 100ppt, move window to workspace 1
-for_window [app_id="Falkon"] floating enable, border pixel 4, resize set height 100ppt width 100ppt, move window to workspace 1
-
-no_focus [app_id=".*"]
+# Mark windows for a specific seat
+bindsym Mod1+1  mark "seat1"
+bindsym Mod1+2  mark "seat2"
+bindsym Mod1+3  mark "seat3"
+bindsym Mod1+4  mark "seat4"
+bindsym Mod1+5  mark "seat5"
+bindsym Mod1+6  mark "seat6"
+bindsym Mod1+7  mark "seat7"
+bindsym Mod1+8  mark "seat8"
+bindsym Mod1+9  mark "seat9"
+bindsym Mod1+10 mark "seat10"
 
 include /etc/sway/config.d/*
