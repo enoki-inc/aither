@@ -7,20 +7,45 @@
 
 # Aither - Multiplayer Desktop OS
 
-We introduce you to Aither, the first containerized multiplayer desktop OS. By utilizing tailscale, we can make this desktop accessible to any user on the tailscale network.
+Aither is the first containerized multiplayer desktop OS. By utilizing tailscale, we can make this desktop accessible to any user on same tailscale network that it is authenticated to.
 
 ## Instructions
 
 In order to get Aither up and running, please follow these instructions:
 
-1. open terminal and run `git clone https://github.com/enoki-inc/alpine-sway-docker.git`
+1. open terminal and run 
+```bash
+git clone https://github.com/enoki-inc/alpine-sway-docker.git
+`````
 2. open tailscale website to retrieve emphemeral key and place it in `tailscale.env` file in `alpine-sway-docker` folder
-3. `cd alpine-sway-docker`
-4. `sudo docker-compose build --no-cache`
-5. `sudo docker-compose up -d`
-6. `sudo docker-compose exec tailscale tailscale up --authkey=$TAILSCALE_AUTH_KEY`
+```diff
+- TAILSCALE_AUTH_KEY: tskey-abc123
++ TAILSCALE_AUTH_KEY: <your key here>
+```
+3. 
+```bash
+cd alpine-sway-docker
+```````
+4. 
+```bash
+sudo docker-compose build --no-cache
+`````
+5. 
+```bash
+sudo docker-compose up -d
+`````
+6. 
+```bash
+sudo docker-compose exec tailscale tailscale up --authkey=$TAILSCALE_AUTH_KEY
+`````
+7. 
+Access the aither desktop container through vnc ports `5900-5910` using a vnc viewer on any device that is authenticated on the same tailscale network
+```diff
+- 0.0.0.0:<59000-5910>
++ <tailscale_ip>:<5900-5910>
+```
 
-You can now access the aither desktop container through vnc ports `5900-5910` on any device that is authenticated on same tailscale network
+Each port is mapped to a different seat, so multiple users can work simulataneously on the containerized desktop, as long as they are accessing the desktop on different ports. 
 
 ## Troubleshooting
 
