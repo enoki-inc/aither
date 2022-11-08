@@ -104,6 +104,7 @@ exec_always {
         #gsettings set $gnome-schema icon-theme 'Your icon theme'
         #gsettings set $gnome-schema font-name 'Your font name'
         gsettings set org.gnome.desktop.wm.preferences button-layout ""
+        }
 
 
 # Mapping colored cursors to seats
@@ -123,7 +124,7 @@ seat seat0 fallback true
 
 
 # Move focused window
-bindsym {{Mod1+h}} exec {{move left 50}}
+bindsym Mod1+h exec move left 50
 bindsym Mod1+j move down 50
 bindsym Mod1+k move up 50
 bindsym Mod1+l move right 50
