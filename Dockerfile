@@ -69,7 +69,8 @@ RUN apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/co
     grimshot \
     slurp \
     wl-clipboard \
-    font-noto-emoji
+    font-noto-emoji \
+    nautilus
 
 # Install our modified sway that extends per-container border colors and custom mouse cursors
 RUN mkdir -p /etc/aither-tools && \
