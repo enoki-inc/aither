@@ -230,7 +230,8 @@ exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat10 $ip 5910
 exec waybar --config /etc/waybar/config
 
 ## Multiplayer window border colors 
-# this still needs testing, make sure it's "mark"
+
+#Focused
 for_window [con_mark="seat1"] client.focused $base05 $base05 $base05 $base05 $base05
 for_window [con_mark="seat2"] client.focused $base08 $base08 $base08 $base08 $base08
 for_window [con_mark="seat3"] client.focused $base0D $base0D $base0D $base0D $base0D 
@@ -243,6 +244,32 @@ for_window [con_mark="seat8"] client.focused $base09 $base09 $base09 $base09 $ba
 for_window [con_mark="seat9"] client.focused $base0E $base0E $base0E $base0E $base0E 
 for_window [con_mark="seat10"] client.focused $base00 $base00 $base00 $base00 $base00 
 
+#Unfocused
+for_window [con_mark="seat1"] client.unfocused $base05 $base05 $base05 $base05 $base05
+for_window [con_mark="seat2"] client.unfocused $base08 $base08 $base08 $base08 $base08
+for_window [con_mark="seat3"] client.unfocused $base0D $base0D $base0D $base0D $base0D 
+for_window [con_mark="seat4"] client.unfocused $base0B $base0B $base0B $base0B $base0B 
+for_window [con_mark="seat6"] client.unfocused $base0F $base0F $base0F $base0F $base0F
+for_window [con_mark="seat5"] client.unfocused $base0A $base0A $base0A $base0A $base0A 
+for_window [con_mark="seat6"] client.unfocused $base0F $base0F $base0F $base0F $base0F
+for_window [con_mark="seat7"] client.unfocused $base0C $base0C $base0C $base0C $base0C 
+for_window [con_mark="seat8"] client.unfocused $base09 $base09 $base09 $base09 $base09 
+for_window [con_mark="seat9"] client.unfocused $base0E $base0E $base0E $base0E $base0E 
+for_window [con_mark="seat10"] client.unfocused $base00 $base00 $base00 $base00 $base00 
+
+#Focused_inactive
+for_window [con_mark="seat1"] client.focused_inactive $base05 $base05 $base05 $base05 $base05
+for_window [con_mark="seat2"] client.focused_inactive $base08 $base08 $base08 $base08 $base08
+for_window [con_mark="seat3"] client.focused_inactive $base0D $base0D $base0D $base0D $base0D 
+for_window [con_mark="seat4"] client.focused_inactive $base0B $base0B $base0B $base0B $base0B 
+for_window [con_mark="seat6"] client.focused_inactive $base0F $base0F $base0F $base0F $base0F
+for_window [con_mark="seat5"] client.focused_inactive $base0A $base0A $base0A $base0A $base0A 
+for_window [con_mark="seat6"] client.focused_inactive $base0F $base0F $base0F $base0F $base0F
+for_window [con_mark="seat7"] client.focused_inactive $base0C $base0C $base0C $base0C $base0C 
+for_window [con_mark="seat8"] client.focused_inactive $base09 $base09 $base09 $base09 $base09 
+for_window [con_mark="seat9"] client.focused_inactive $base0E $base0E $base0E $base0E $base0E 
+for_window [con_mark="seat10"] client.focused_inactive $base00 $base00 $base00 $base00 $base00 
+
 # Mark windows for a specific seat
 bindsym Mod1+1  mark "seat1"
 bindsym Mod1+2  mark "seat2"
@@ -253,6 +280,5 @@ bindsym Mod1+6  mark "seat6"
 bindsym Mod1+7  mark "seat7"
 bindsym Mod1+8  mark "seat8"
 bindsym Mod1+9  mark "seat9"
-bindsym Mod1+10 mark "seat10"
 
 include /etc/sway/config.d/*
