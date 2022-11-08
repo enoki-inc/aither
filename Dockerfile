@@ -96,6 +96,7 @@ RUN echo "dev:dev" | chpasswd
 COPY ./config/sway/config /etc/sway/config
 COPY ./config/waybar /etc/waybar
 COPY ./config/wayvnc/config /etc/wayvnc/config
+COPY ./config/alacritty /etc/alacritty
 
 EXPOSE 5900-5910
 
