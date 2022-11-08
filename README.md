@@ -1,3 +1,10 @@
+[![enoki.so](https://github.com/enoki-inc/alpine-sway-docker/blob/main/aither.png)](https://enoki.so)
+
+[![Website](https://img.shields.io/static/v1.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=enoki-inc&message=website)](https://enoki.so "check out our landing page!")
+[![Contact](https://img.shields.io/static/v1.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=enoki-inc&message=contact)](founders@enoki.so "send us an email anytime!")
+[![Github](https://img.shields.io/static/v1.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=enoki-inc&message=github)](https://github.com/enoki-inc "check out our github!")
+[![Reddit](https://img.shields.io/static/v1.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=enoki-inc&message=reddit)](https://github.com/enoki-inc "check out our reddit account!")
+
 # Aither - Multiplayer Desktop OS
 
 We introduce you to Aither, the first containerized multiplayer desktop OS. By utilizing tailscale, we can make this desktop accessible to any user on the tailscale network.
