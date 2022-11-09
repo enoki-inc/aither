@@ -17,15 +17,15 @@ In order to get Aither up and running, please follow these instructions:
 ```bash
 git clone https://github.com/enoki-inc/aither.git
 `````
-2. open tailscale website to retrieve emphemeral key and place it in `tailscale.env` file in `aither` folder
-```diff
-- TAILSCALE_AUTH_KEY: tskey-abc123
-+ TAILSCALE_AUTH_KEY: <your key here>
-```
-3. 
+2. 
 ```bash
 cd aither
 ```````
+3. open tailscale website to retrieve emphemeral key and place it in `tailscale.env` file in `aither` folder
+```diff
+- TAILSCALE_AUTH_KEY=
++ TAILSCALE_AUTH_KEY=<your key here>
+```
 4. 
 ```bash
 sudo docker-compose build --no-cache
