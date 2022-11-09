@@ -1,9 +1,9 @@
-[![enoki.so](https://github.com/enoki-inc/alpine-sway-docker/blob/main/aither.png)](https://enoki.so)
+[![enoki.so](https://github.com/enoki-inc/alpine-sway-docker/blob/main/aither.gif)](https://enoki.so)
 
-[![Website](https://img.shields.io/static/v1.svg?color=d30102&labelColor=002b36&logoColor=ffffff&style=for-the-badge&label=enoki-inc&message=website)](https://enoki.so "check out our landing page!")
-[![Github](https://img.shields.io/static/v1.svg?color=d30102&labelColor=002b36&logoColor=ffffff&style=for-the-badge&label=enoki-inc&message=github)](https://github.com/enoki-inc "check out our github!")
-[![Twitter](https://img.shields.io/static/v1.svg?color=d30102&labelColor=002b36&logoColor=ffffff&style=for-the-badge&label=enoki-inc&message=twitter)](https://twitter.com/Enoki_Inc "check out our twitter page!")
-[![Linkedin](https://img.shields.io/static/v1.svg?color=d30102&labelColor=002b36&logoColor=ffffff&style=for-the-badge&label=enoki-inc&message=linkedin)](https://linkedin.com/company/enoki-inc/ "check out our linkedin page!")
+[![Website](https://img.shields.io/static/v1.svg?color=b58900&labelColor=002b36&logoColor=ffffff&style=for-the-badge&label=enoki-inc&message=website)](https://enoki.so "check out our landing page!")
+[![Github](https://img.shields.io/static/v1.svg?color=b58900&labelColor=002b36&logoColor=ffffff&style=for-the-badge&label=enoki-inc&message=github)](https://github.com/enoki-inc "check out our github!")
+[![Twitter](https://img.shields.io/static/v1.svg?color=b58900&labelColor=002b36&logoColor=ffffff&style=for-the-badge&label=enoki-inc&message=twitter)](https://twitter.com/Enoki_Inc "check out our twitter page!")
+[![Linkedin](https://img.shields.io/static/v1.svg?color=b58900&labelColor=002b36&logoColor=ffffff&style=for-the-badge&label=enoki-inc&message=linkedin)](https://linkedin.com/company/enoki-inc/ "check out our linkedin page!")
 
 # Aither - Multiplayer Desktop OS
 
@@ -17,7 +17,7 @@ In order to get Aither up and running, please follow these instructions:
 ```bash
 git clone https://github.com/enoki-inc/aither.git
 `````
-2. open tailscale website to retrieve emphemeral key and place it in `tailscale.env` file in `alpine-sway-docker` folder
+2. open tailscale website to retrieve emphemeral key and place it in `tailscale.env` file in `aither` folder
 ```diff
 - TAILSCALE_AUTH_KEY: tskey-abc123
 + TAILSCALE_AUTH_KEY: <your key here>
