@@ -40,16 +40,16 @@ sudo docker-compose exec tailscale tailscale up --authkey=$TAILSCALE_AUTH_KEY
 `````
 7. access the aither desktop container through vnc ports `5900-5910` using a vnc viewer on any device that is authenticated on the same tailscale network
 ```diff
-- 0.0.0.0:<59000-5910>
+- 0.0.0.0:<5900-5910>
 + <tailscale_ip>:<5900-5910>
 ```
 
-Each port is mapped to a different seat, so multiple users can work simulataneously on the containerized desktop, as long as they are accessing the desktop on different ports. 
+Each port is mapped to a different seat, so multiple users can work simultaneously on the containerized desktop, as long as they are accessing the desktop on different ports. 
 
 ## Troubleshooting
 
 1) What if I get a `permission denied` error on `entrypoint.sh` when running `sudo docker-compose up -d`? \
-You'll need to make the file executable on your local machine. To do that, `cd` into the `aither` folder and run: 
+You'll need to make the file executable on your local machine. On the command line, `cd` into the `aither` folder and run: 
 ```bash
 sudo chmod +x entrypoint.sh
 `````
