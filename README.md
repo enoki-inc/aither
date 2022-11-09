@@ -50,7 +50,7 @@ Each port is mapped to a different seat, so multiple users can work simultaneous
 `````
 while user2 can connect on: 
 ```bash
-<tailscale_ip>:5900
+<tailscale_ip>:5901
 `````
 
 ## Troubleshooting
