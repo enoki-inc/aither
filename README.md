@@ -15,7 +15,7 @@ In order to get Aither up and running, please follow these instructions:
 
 1. open terminal and run 
 ```bash
-git clone https://github.com/enoki-inc/alpine-sway-docker.git
+git clone https://github.com/enoki-inc/aither.git
 `````
 2. open tailscale website to retrieve emphemeral key and place it in `tailscale.env` file in `alpine-sway-docker` folder
 ```diff
@@ -48,5 +48,8 @@ Each port is mapped to a different seat, so multiple users can work simulataneou
 
 ## Troubleshooting
 
-1) What if I get a `permission denied` error on `entrypoint.sh` when running `sudo docker-compose up -d`?
-   You'll need to make the file executable on your local machine. To do that, `cd` into the `alpine-sway-docker` folder and run `sudo chmod +x entrypoint.sh`
+1) What if I get a `permission denied` error on `entrypoint.sh` when running `sudo docker-compose up -d`? \
+You'll need to make the file executable on your local machine. To do that, `cd` into the `aither` folder and run: 
+```bash
+sudo chmod +x entrypoint.sh
+`````
