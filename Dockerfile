@@ -62,7 +62,7 @@ RUN apk add \
     firefox
 
 RUN apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/main \
-     pciutils-libs
+    pciutils-libs
      
 RUN apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing \
     clipman \
