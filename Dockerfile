@@ -58,8 +58,12 @@ RUN apk add \
     waybar \
     wayvnc \
     geany \
-    nautilus
+    nautilus \
+    firefox
 
+RUN apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/main \
+     pciutils-libs
+     
 RUN apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing \
     clipman \
     ossp-uuid
