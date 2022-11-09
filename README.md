@@ -44,7 +44,14 @@ sudo docker-compose exec tailscale tailscale up --authkey=$TAILSCALE_AUTH_KEY
 + <tailscale_ip>:<5900-5910>
 ```
 
-Each port is mapped to a different seat, so multiple users can work simultaneously on the containerized desktop, as long as they are accessing the desktop on different ports. 
+Each port is mapped to a different seat, so multiple users can work simultaneously on the containerized desktop, as long as they are accessing the desktop on different ports. For example, user1 can access aither through a vnc viewer on:
+```bash
+<tailscale_ip>:5900
+`````
+while user2 can connect on: 
+```bash
+<tailscale_ip>:5900
+`````
 
 ## Troubleshooting
 
@@ -53,3 +60,5 @@ You'll need to make the file executable on your local machine. On the command li
 ```bash
 sudo chmod +x entrypoint.sh
 `````
+2) When viewing Aither through vnc on my mac, why do some of my bindsym shortcuts not work? \
+Certain bindsym shortcuts for aither might not work when viewing aither on a mac vnc viewer due to certain macOS key shortcuts.
