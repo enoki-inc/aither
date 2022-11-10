@@ -16,8 +16,6 @@ In order to get Aither up and running, please follow these instructions:
 open terminal and run 
 ```bash
 git clone https://github.com/enoki-inc/aither.git
-`````
-```bash
 cd aither
 ```````
 open tailscale website to retrieve emphemeral key and place it in `tailscale.env` file in `aither` folder
@@ -27,11 +25,7 @@ open tailscale website to retrieve emphemeral key and place it in `tailscale.env
 ```
 ```bash
 sudo docker-compose build --no-cache
-`````
-```bash
 sudo docker-compose up -d
-`````
-```bash
 sudo docker-compose exec tailscale tailscale up --authkey=$TAILSCALE_AUTH_KEY
 `````
 access the aither desktop container through vnc ports `5900-5910` using a vnc viewer on any device that is authenticated on the same tailscale network
