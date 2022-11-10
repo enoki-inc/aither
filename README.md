@@ -5,20 +5,27 @@
 [![Twitter](https://img.shields.io/static/v1.svg?color=FBBC04&labelColor=003E8A&logoColor=ffffff&style=for-the-badge&label=enoki-inc&message=twitter)](https://twitter.com/Enoki_Inc "check out our twitter page!")
 [![Linkedin](https://img.shields.io/static/v1.svg?color=FBBC04&labelColor=003E8A&logoColor=ffffff&style=for-the-badge&label=enoki-inc&message=linkedin)](https://linkedin.com/company/enoki-inc/ "check out our linkedin page!")
 
-# Aither - Multiplayer Desktop Environments
+# Aither - Multiplayer Desktop Environment
 
-Aither is the first containerized multiplayer desktop environment. By utilizing tailscale, we can make this desktop accessible to any user on same tailscale network that it is authenticated to.
+Aither is the first containerized multiplayer desktop environment. By utilizing tailscale, we can make this desktop accessible to any user on the same tailscale network that it is authenticated to.
 
-## Instructions
+## 🚀 Installation
 
-In order to get Aither up and running, please follow these instructions:
+### Before starting, please make sure you have created a tailscale account, as well as docker and docker-compose installed on your machine.
+Tailscale: https://tailscale.com/ \
+Docker: https://docker-docs.netlify.app/install/ \
+Docker Compose: https://docker-docs.netlify.app/compose/install/
+
+### In order to get Aither up and running, please follow these instructions:
 
 open terminal and run 
 ```bash
 git clone https://github.com/enoki-inc/aither.git
 cd aither
 ```````
-open tailscale website to retrieve emphemeral key and place it in `tailscale.env` file in `aither` folder
+within your account on tailscale's website, navigate to the auth keys page of the admin console to retrieve an emphemeral key (screenshot below) \
+<img src="https://tailscale.com/kb/1132/flydotio/ephemeral-keys.png" width="350" height="350"> \
+copy the generated ephemeral key into the `tailscale.env` file within the `aither` folder
 ```diff
 - TAILSCALE_AUTH_KEY=
 + TAILSCALE_AUTH_KEY=<your key here>
@@ -42,8 +49,19 @@ while user2 can connect on:
 ```bash
 <tailscale_ip>:5901
 `````
+## 🔑 Keybinds 
+These are the aither basic keybinds:
+|        Keybind         |                 Function                 |
+| ---------------------- | ---------------------------------------- |
+| `Alt + drag window`    | move window around while holding Alt key                |
+| `Alt + H/J/K/L`        | move focused floating window left/down/up/right        |
+| `Alt + left/down/up/right`      | move focused floating window left/down/up/right                      |
+| `Alt + Shift + H/J/K/L`              | move focus around left/down/up/right                 |
+| `Alt + Shift + down/up`              | shrink/grow focused floating window vertically               |
+| `Alt + Shift + left/right`           | shrink/grow focused floating window horizontally                              |
+| `Alt + 1>9`     | mark window for seat1>9 for specific border colors                         |
 
-## Troubleshooting
+## 🔨 Troubleshooting
 
 1) What if I get a `permission denied` error on `entrypoint.sh` when running `sudo docker-compose up -d`? \
 You'll need to make the file executable on your local machine. On the command line, `cd` into the `aither` folder and run: 
@@ -52,3 +70,7 @@ sudo chmod +x entrypoint.sh
 `````
 2) When viewing Aither through vnc on my mac, why do some of my bindsym shortcuts not work? \
 Certain bindsym shortcuts for aither might not work when viewing aither on a mac vnc viewer due to certain macOS key shortcuts.
+
+## ⏳ Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=enoki-inc/aither&type=Date)](https://star-history.com/#enoki-inc/aither&Date)
