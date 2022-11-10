@@ -55,7 +55,7 @@ while user2 can connect on:
 <tailscale_ip>:5901
 `````
 ## 🔑 Keybinds 
-These are the aither basic keybinds:
+These are basic keybinds for Aither:
 |        Keybind         |                 Function                 |
 | ---------------------- | ---------------------------------------- |
 | `Alt + drag window`    | move window around while holding Alt key                |
