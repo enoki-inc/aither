@@ -5,7 +5,7 @@
 [![Twitter](https://img.shields.io/static/v1.svg?color=FBBC04&labelColor=003E8A&logoColor=ffffff&style=for-the-badge&label=enoki-inc&message=twitter)](https://twitter.com/Enoki_Inc "check out our twitter page!")
 [![Linkedin](https://img.shields.io/static/v1.svg?color=FBBC04&labelColor=003E8A&logoColor=ffffff&style=for-the-badge&label=enoki-inc&message=linkedin)](https://linkedin.com/company/enoki-inc/ "check out our linkedin page!")
 
-# Aither - Multiplayer Desktop Environment
+# Aither - Multiplayer Desktop Environments
 
 Aither is the first containerized multiplayer desktop environment. By utilizing tailscale, we can make this desktop accessible to any user on same tailscale network that it is authenticated to.
 
