@@ -9,12 +9,17 @@
 
 Aither is the first containerized multiplayer desktop environment. By utilizing tailscale, we can make this desktop accessible to any user on the same tailscale network that it is authenticated to.
 
+<img src="https://github.com/enoki-inc/alpine-sway-docker/blob/main/demo-sc-aither.png">
+
 ## 🚀 Installation
 
-### Before starting, please make sure you have created a tailscale account, as well as docker and docker-compose installed on your machine.
+### Before starting, please make sure you have created a tailscale account and have docker and docker-compose installed on the machine you're hosting aither on. You will also need to install a vnc viewer on the device within your tailscale network that you want to access aither with.
 Tailscale: https://tailscale.com/ \
 Docker: https://docker-docs.netlify.app/install/ \
-Docker Compose: https://docker-docs.netlify.app/compose/install/
+Docker Compose: https://docker-docs.netlify.app/compose/install/ \
+Remmina (vnc viewer for Linux): https://remmina.org/ \
+TightVNC (vnc viewer for Windows): https://www.tightvnc.com/ \
+RealVNC (vnc viewer for Mac): https://www.realvnc.com/en/ 
 
 ### In order to get Aither up and running, please follow these instructions:
 
@@ -24,7 +29,7 @@ git clone https://github.com/enoki-inc/aither.git
 cd aither
 ```````
 within your account on tailscale's website, navigate to the auth keys page of the admin console to retrieve an emphemeral key (screenshot below) \
-<img src="https://tailscale.com/kb/1132/flydotio/ephemeral-keys.png" width="350" height="350"> \
+<img src="https://tailscale.com/kb/1132/flydotio/ephemeral-keys.png" width="450" height="450"> \
 copy the generated ephemeral key into the `tailscale.env` file within the `aither` folder
 ```diff
 - TAILSCALE_AUTH_KEY=
