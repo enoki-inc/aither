@@ -21,6 +21,10 @@ Remmina (vnc viewer for Linux): https://remmina.org/ \
 TightVNC (vnc viewer for Windows): https://www.tightvnc.com/ \
 RealVNC (vnc viewer for Mac): https://www.realvnc.com/en/ 
 
+### Here is a demo showcasing the installation: 
+
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/JRKDs-rs5qs/0.jpg)](http://www.youtube.com/watch?v=JRKDs-rs5qs "JRKDs-rs5qs")
+
 ### In order to get Aither up and running, please follow these instructions:
 
 open terminal and run 
