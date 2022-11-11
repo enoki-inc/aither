@@ -13,7 +13,7 @@ Aither is the first containerized multiplayer desktop environment. By utilizing 
 
 ## 🚀 Installation
 
-### Before starting, please make sure you have created a tailscale account and have docker and docker-compose installed on the machine you're hosting Aither on. You will also need to install a vnc viewer on the device within your tailscale network that you want to access aither with.
+### Before starting, please make sure you have created a tailscale account and have docker and docker-compose installed on the machine you're hosting Aither on. You will also need to install a vnc viewer on the device within your tailscale network that you want to access Aither with.
 Tailscale: https://tailscale.com/ \
 Docker: https://docker-docs.netlify.app/install/ \
 Docker Compose: https://docker-docs.netlify.app/compose/install/ \
