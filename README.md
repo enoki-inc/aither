@@ -40,7 +40,7 @@ sudo docker-compose build --no-cache
 sudo docker-compose up -d
 sudo docker-compose exec tailscale tailscale up --authkey=$TAILSCALE_AUTH_KEY
 `````
-access the aither desktop container through vnc ports `5900-5910` using a vnc viewer on any device that is authenticated on the same tailscale network
+access the desktop container through vnc ports `5900-5910` using a vnc viewer on any device that is authenticated on the same tailscale network
 ```diff
 - 0.0.0.0:<5900-5910>
 + <tailscale_ip>:<5900-5910>
