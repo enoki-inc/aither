@@ -23,7 +23,7 @@ RealVNC (vnc viewer for Mac): https://www.realvnc.com/en/
 
 ### Here is a demo showcasing the installation: 
 
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/JRKDs-rs5qs/0.jpg)](http://www.youtube.com/watch?v=JRKDs-rs5qs "JRKDs-rs5qs")
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/dmAuGX1FmcU/0.jpg)](http://www.youtube.com/watch?v=dmAuGX1FmcU "dmAuGX1FmcU")
 
 ### In order to get Aither up and running, please follow these instructions:
 
