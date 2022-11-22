@@ -36,7 +36,9 @@ RUN apk add \
     elogind \
     python3 \
     py3-pip \
+    py3-numpy \
     docker \
+    procps \
     bash \
     curl 
 
@@ -97,12 +99,17 @@ RUN apk add -X https://dl-cdn.alpinelinux.org/alpine/v3.16/main -u alpine-keys -
 RUN adduser -D $USER && echo "$USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/wheel
 RUN echo "dev:dev" | chpasswd
 
+RUN mkdir -p /etc/noVNC && \
+    git clone https://github.com/novnc/noVNC.git && \
+    mv /noVNC/* /etc/noVNC && \
+    git clone https://github.com/novnc/websockify.git /etc/noVNC/utils/websockify
+    
 COPY ./config/sway/config /etc/sway/config
 COPY ./config/waybar /etc/waybar
 COPY ./config/wayvnc/config /etc/wayvnc/config
 COPY ./config/alacritty /etc/alacritty
 
-EXPOSE 5900-5910
+EXPOSE 6080-6090
 
 USER $USER
 COPY entrypoint.sh /
