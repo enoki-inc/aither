@@ -5,7 +5,7 @@
 [![Twitter](https://img.shields.io/static/v1.svg?color=FBBC04&labelColor=003E8A&logoColor=ffffff&style=for-the-badge&label=enoki-inc&message=twitter)](https://twitter.com/Enoki_Inc "check out our twitter page!")
 [![Linkedin](https://img.shields.io/static/v1.svg?color=FBBC04&labelColor=003E8A&logoColor=ffffff&style=for-the-badge&label=enoki-inc&message=linkedin)](https://linkedin.com/company/enoki-inc/ "check out our linkedin page!")
 
-# Aither Web - Browser-Based Multiplayer Desktop Environment
+# Aither - Browser-Based Multiplayer Desktop Environment
 
 Aither Web is the browser-based version of our containerized multiplayer desktop environment Aither. By utilizing tailscale, we can make this desktop accessible in the web browser of any user on the same tailscale network that it is authenticated to.
 
