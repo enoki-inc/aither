@@ -31,7 +31,7 @@ cd aither
 ```````
 within your account on tailscale's website, navigate to the auth keys page of the admin console to retrieve an emphemeral key (screenshot below) \
 <img src="https://tailscale.com/kb/1132/flydotio/ephemeral-keys.png" width="450" height="450"> \
-copy the generated ephemeral key into the `tailscale.env` file within the `aither-web` folder
+copy the generated ephemeral key into the `tailscale.env` file within the `aither` folder
 ```diff
 - TAILSCALE_AUTH_KEY=
 + TAILSCALE_AUTH_KEY=<your key here>
@@ -55,7 +55,7 @@ while user2 can connect by navigating to this url:
 ```bash
 <tailscale_ip>:6081/vnc.html
 `````
-### NOTE: The tradeoff of browser-based accessibility is performance isn't as smooth as viewing the desktop in a vnc viewer. However, you can improve Aither Web performance by reducing quality and maximizing compression in noVNC settings.
+### NOTE: If you have slow internet speed, you can improve Aither performance by reducing quality and maximizing compression in noVNC settings.
 
 ## 🔑 Keybinds 
 These are basic keybinds for Aither:
