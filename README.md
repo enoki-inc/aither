@@ -5,36 +5,33 @@
 [![Twitter](https://img.shields.io/static/v1.svg?color=FBBC04&labelColor=003E8A&logoColor=ffffff&style=for-the-badge&label=enoki-inc&message=twitter)](https://twitter.com/Enoki_Inc "check out our twitter page!")
 [![Linkedin](https://img.shields.io/static/v1.svg?color=FBBC04&labelColor=003E8A&logoColor=ffffff&style=for-the-badge&label=enoki-inc&message=linkedin)](https://linkedin.com/company/enoki-inc/ "check out our linkedin page!")
 
-# Aither - Multiplayer Desktop Environment
+# Aither Web - Browser-Based Multiplayer Desktop Environment
 
-Aither is the first containerized multiplayer desktop environment. By utilizing tailscale, we can make this desktop accessible to any user on the same tailscale network that it is authenticated to.
+Aither Web is the browser-based version of our containerized multiplayer desktop environment Aither. By utilizing tailscale, we can make this desktop accessible in the web browser of any user on the same tailscale network that it is authenticated to.
 
 <img src="https://github.com/enoki-inc/alpine-sway-docker/blob/main/demo-sc-aither.png">
 
 ## 🚀 Installation
 
-### Before starting, please make sure you have created a tailscale account and have docker and docker-compose installed on the machine you're hosting Aither on. You will also need to install a vnc viewer on the device within your tailscale network that you want to access Aither with.
+### Before starting, please make sure you have created a tailscale account and have docker and docker-compose installed on the machine you're hosting Aither Web on.
 Tailscale: https://tailscale.com/ \
 Docker: https://docker-docs.netlify.app/install/ \
-Docker Compose: https://docker-docs.netlify.app/compose/install/ \
-Remmina (vnc viewer for Linux): https://remmina.org/ \
-TightVNC (vnc viewer for Windows): https://www.tightvnc.com/ \
-RealVNC (vnc viewer for Mac): https://www.realvnc.com/en/ 
+Docker Compose: https://docker-docs.netlify.app/compose/install/
 
 ### Here is a demo showcasing the installation: 
 
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/dmAuGX1FmcU/0.jpg)](http://www.youtube.com/watch?v=dmAuGX1FmcU "dmAuGX1FmcU")
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/Z7jxQPwqZGc/0.jpg)](http://www.youtube.com/watch?v=Z7jxQPwqZGc "Z7jxQPwqZGc")
 
-### In order to get Aither up and running, please follow these instructions:
+### In order to get Aither Web up and running, please follow these instructions:
 
 open terminal and run 
 ```bash
-git clone https://github.com/enoki-inc/aither.git
-cd aither
+git clone https://github.com/enoki-inc/aither-web.git
+cd aither-web
 ```````
 within your account on tailscale's website, navigate to the auth keys page of the admin console to retrieve an emphemeral key (screenshot below) \
 <img src="https://tailscale.com/kb/1132/flydotio/ephemeral-keys.png" width="450" height="450"> \
-copy the generated ephemeral key into the `tailscale.env` file within the `aither` folder
+copy the generated ephemeral key into the `tailscale.env` file within the `aither-web` folder
 ```diff
 - TAILSCALE_AUTH_KEY=
 + TAILSCALE_AUTH_KEY=<your key here>
@@ -44,20 +41,22 @@ sudo docker-compose build --no-cache
 sudo docker-compose up -d
 sudo docker-compose exec tailscale tailscale up --authkey=$TAILSCALE_AUTH_KEY
 `````
-access the desktop container through vnc ports `5900-5910` using a vnc viewer on any device that is authenticated on the same tailscale network
+access the desktop container within the browser through ports `6080-6090` on any device that is authenticated on the same tailscale network using the url below:
 ```diff
-- 0.0.0.0:<5900-5910>
-+ <tailscale_ip>:<5900-5910>
+- 0.0.0.0:<6080-6090>/vnc.html
++ <tailscale_ip>:<6080-6090>/vnc.html
 ```
 \
-Each port is mapped to a different seat, so multiple users can work simultaneously on the containerized desktop, as long as they are accessing the desktop on different ports. For example, user1 can access aither through a vnc viewer on:
+Each port is mapped to a different seat, so multiple users can work simultaneously on the containerized desktop, as long as they are accessing the desktop on different ports. For example, user1 can access aither web through this url:
 ```bash
-<tailscale_ip>:5900
+<tailscale_ip>:6080/vnc.html
 `````
-while user2 can connect on: 
+while user2 can connect by navigating to this url: 
 ```bash
-<tailscale_ip>:5901
+<tailscale_ip>:6081/vnc.html
 `````
+### NOTE: The tradeoff of browser-based accessibility is performance isn't as smooth as viewing the desktop in a vnc viewer. However, you can improve Aither Web performance by reducing quality and maximizing compression in noVNC settings.
+
 ## 🔑 Keybinds 
 These are basic keybinds for Aither:
 |        Keybind         |                 Function                 |
