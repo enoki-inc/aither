@@ -234,6 +234,7 @@ exec sudo etc/noVNC/utils/novnc_proxy --vnc 0.0.0.0:5907 --listen 6087
 exec sudo etc/noVNC/utils/novnc_proxy --vnc 0.0.0.0:5908 --listen 6088
 exec sudo etc/noVNC/utils/novnc_proxy --vnc 0.0.0.0:5909 --listen 6089
 exec sudo etc/noVNC/utils/novnc_proxy --vnc 0.0.0.0:5910 --listen 6090
+exec code-server --bind-addr 0.0.0.0:8080 --auth none
 
 #exec socat TCP-LISTEN:7023,fork UNIX-CONNECT:/tmp/sway-ipc.sock
 
