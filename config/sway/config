@@ -33,7 +33,6 @@ set $gnome-cursor-theme 'Bibata-Modern-Classic'
 set $gnome-gtk-theme 'Base16'
 
 # The custom cursors are typically found at ~/.icons as per XDG standards
-# Rohan we should make sure this works with aither, might need full path to work?
 # Note that the cursor colors match the per-window marks for border colors in sway-aither
 set $seat0-cursor Bibata-Modern-Classic 
 set $seat1-cursor Bibata-Modern-Light 
@@ -93,7 +92,6 @@ hide_edge_borders smart
 exec swaybg -c '#000000'
 
 # Notification system
-## Rohan make sure this is the right directory
 #exec mako --config ~/.config/mako/config
 
 # Gnome Settings
