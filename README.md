@@ -26,8 +26,8 @@ Docker Compose: https://docker-docs.netlify.app/compose/install/
 
 open terminal and run 
 ```bash
-git clone https://github.com/enoki-inc/aither-web.git
-cd aither-web
+git clone https://github.com/enoki-inc/aither.git
+cd aither
 ```````
 within your account on tailscale's website, navigate to the auth keys page of the admin console to retrieve an emphemeral key (screenshot below) \
 <img src="https://tailscale.com/kb/1132/flydotio/ephemeral-keys.png" width="450" height="450"> \
