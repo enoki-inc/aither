@@ -24,6 +24,7 @@ services:
       - 5908:5908
       - 5909:5909
       - 5910:5910
+      - 8080:8080
     command: tailscaled
 
   aither:
