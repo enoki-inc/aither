@@ -29,7 +29,7 @@ RealVNC (vnc viewer for Mac): https://www.realvnc.com/en/
 
 open terminal and run 
 ```bash
-git clone https://github.com/enoki-inc/aither.git
+git clone --branch aither-baseimage https://github.com/enoki-inc/aither.git
 cd aither
 ```````
 within your account on tailscale's website, navigate to the auth keys page of the admin console to retrieve an emphemeral key (screenshot below) \
