@@ -225,6 +225,18 @@ exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat7 $ip 5907
 exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat8 $ip 5908
 exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat9 $ip 5909
 exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat10 $ip 5910
+exec sudo etc/noVNC/utils/novnc_proxy --vnc 0.0.0.0:5900 --listen 6080
+exec sudo etc/noVNC/utils/novnc_proxy --vnc 0.0.0.0:5901 --listen 6081
+exec sudo etc/noVNC/utils/novnc_proxy --vnc 0.0.0.0:5902 --listen 6082
+exec sudo etc/noVNC/utils/novnc_proxy --vnc 0.0.0.0:5903 --listen 6083
+exec sudo etc/noVNC/utils/novnc_proxy --vnc 0.0.0.0:5904 --listen 6084
+exec sudo etc/noVNC/utils/novnc_proxy --vnc 0.0.0.0:5905 --listen 6085
+exec sudo etc/noVNC/utils/novnc_proxy --vnc 0.0.0.0:5906 --listen 6086
+exec sudo etc/noVNC/utils/novnc_proxy --vnc 0.0.0.0:5907 --listen 6087
+exec sudo etc/noVNC/utils/novnc_proxy --vnc 0.0.0.0:5908 --listen 6088
+exec sudo etc/noVNC/utils/novnc_proxy --vnc 0.0.0.0:5909 --listen 6089
+exec sudo etc/noVNC/utils/novnc_proxy --vnc 0.0.0.0:5910 --listen 6090
+
 #exec socat TCP-LISTEN:7023,fork UNIX-CONNECT:/tmp/sway-ipc.sock
 
 exec waybar --config /etc/waybar/config -s /etc/waybar/style.css
