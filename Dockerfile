@@ -91,7 +91,24 @@ RUN apk add --allow-untrusted \
 RUN mkdir -p /etc/sway-launcher-desktop && \
     curl -o /tmp/sway-launcher-desktop.tar.gz -L "https://github.com/Biont/sway-launcher-desktop/archive/refs/tags/v1.6.0.tar.gz" && \
     tar xf /tmp/sway-launcher-desktop.tar.gz -C /etc/sway-launcher-desktop --strip-components=1
-    
+
+RUN apk add alpine-sdk bash libstdc++ libc6-compat && \
+    apk add nodejs npm && \
+    npm config set python python3 && \
+    npm install --global code-server --unsafe-perm
+
+RUN npm install --global minimist \
+                         yauzl \
+                         yazl \
+                         @microsoft/1ds-core-js \
+                         spdlog \
+                         xterm-headless \
+                         @parcel/watcher \
+                         @vscode/ripgrep \
+                         vscode-proxy-agent \
+                         vscode-regexpp \
+                         keytar
+                         
 ENV USER="dev"
 RUN apk add -X https://dl-cdn.alpinelinux.org/alpine/v3.16/main -u alpine-keys --allow-untrusted
 RUN adduser -D $USER && echo "$USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/wheel
@@ -103,6 +120,7 @@ COPY ./config/wayvnc/config /etc/wayvnc/config
 COPY ./config/alacritty /etc/alacritty
 
 EXPOSE 5900-5910
+EXPOSE 8080
 
 USER $USER
 COPY entrypoint.sh /
