@@ -13,7 +13,7 @@ Aither is the browser-based version of our containerized multiplayer desktop env
 
 ## 🚀 Installation
 
-### Before starting, please make sure you have created a tailscale account and have docker and docker-compose installed on the machine you're hosting Aither Web on.
+### Before starting, please make sure you have created a tailscale account and have docker and docker-compose installed on the machine you're hosting Aither on.
 Tailscale: https://tailscale.com/ \
 Docker: https://docker-docs.netlify.app/install/ \
 Docker Compose: https://docker-docs.netlify.app/compose/install/
