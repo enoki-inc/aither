@@ -7,7 +7,7 @@
 
 # Aither - Browser-Based Multiplayer Desktop Environment
 
-Aither Web is the browser-based version of our containerized multiplayer desktop environment Aither. By utilizing tailscale, we can make this desktop accessible in the web browser of any user on the same tailscale network that it is authenticated to.
+Aither is the browser-based version of our containerized multiplayer desktop environment Aither. By utilizing tailscale, we can make this desktop accessible in the web browser of any user on the same tailscale network that it is authenticated to.
 
 <img src="https://github.com/enoki-inc/alpine-sway-docker/blob/main/demo-sc-aither.png">
 
@@ -22,7 +22,7 @@ Docker Compose: https://docker-docs.netlify.app/compose/install/
 
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/Z7jxQPwqZGc/0.jpg)](http://www.youtube.com/watch?v=Z7jxQPwqZGc "Z7jxQPwqZGc")
 
-### In order to get Aither Web up and running, please follow these instructions:
+### In order to get Aither up and running, please follow these instructions:
 
 open terminal and run 
 ```bash
