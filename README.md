@@ -9,6 +9,8 @@
 
 Aither is the browser-based version of our containerized multiplayer desktop environment Aither. By utilizing tailscale, we can make this desktop accessible in the web browser of any user on the same tailscale network that it is authenticated to.
 
+Check out our image on dockerhub: https://hub.docker.com/r/enokiinc/aither
+
 <img src="https://github.com/enoki-inc/alpine-sway-docker/blob/main/demo-sc-aither.png">
 
 ## 🚀 Installation
