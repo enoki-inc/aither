@@ -85,8 +85,8 @@ hide_edge_borders smart
 # We are using an external wallpaper manager called azote, it's available on rpm-ostree and apk
 # it helps us graphically manage per-output wallpapers dynamically.
 # The user's selected wallpaper goes there
-#set $wallpaper ~/.local/share/backgrounds/default.png
-#exec swaybg -i $wallpaper -m fill -o "*"
+set $wallpaper etc/sway/wallpaper.png
+exec swaybg -i $wallpaper -m fill -o "*"
 #exec ~/.azotebg
 # Wallpaper fallback
 exec swaybg -c '#000000'
