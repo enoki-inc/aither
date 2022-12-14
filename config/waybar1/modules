@@ -1,0 +1,368 @@
+/// Copyright (C) 2020-2022 Aditya Shakya <adi1090x@gmail.com>
+// Everyone is permitted to copy and distribute copies of this file under GNU-GPL3
+//
+// Waybar modules configuration
+{
+	// waybar-backlight
+    "backlight": {
+		"interval": 2,
+        //"device": "amdgpu_bl0",
+        "format": "{icon}",
+        "format-icons": ["", "", "", "", "", "", ""],
+        "on-scroll-up": "light -A 5%",
+        "on-scroll-down": "light -U 5%",
+        "smooth-scrolling-threshold": 1,
+    },
+    "backlight#2": {
+		"interval": 2,
+        //"device": "amdgpu_bl0",
+        "format": "{percent}%",
+        "on-scroll-up": "light -A 5%",
+        "on-scroll-down": "light -U 5%",
+        "smooth-scrolling-threshold": 1,
+    },
+
+	// waybar-battery
+    "battery": {
+		"interval": 60,
+		//"bat": "BAT1",
+		//"adapter": "ACAD",
+		"full-at": 100,
+		"design-capacity": false,
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}",
+        "format-charging": "",
+        "format-plugged": "ﮣ",
+        "format-full": "",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "format-time": "{H}h {M}min",
+        "tooltip": true,
+    },
+    "battery#2": {
+		"interval": 60,
+		//"bat": "BAT1",
+		//"adapter": "ACAD",
+		"full-at": 100,
+		"design-capacity": false,
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}%",
+        "format-charging": "{capacity}%",
+        "format-plugged": "{capacity}%",
+        "format-full": "Full",
+        "format-alt": "{time}",
+        "format-time": "{H}h",
+        "tooltip": false,
+    },
+
+	// waybar-bluetooth
+
+	// waybar-clock
+    "clock": {
+		"interval": 60,
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%I}",
+    },
+    "clock#2": {
+		"interval": 60,
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%M}",
+    },
+    "clock#3": {
+		"interval": 60,
+        "format": "{:%p}",
+    },
+
+	// waybar-cpu
+
+	// waybar-custom
+    "custom/chrome": {
+         "format": "爵",
+         "tooltip": false,
+         "on-click": "flatpak run com.google.Chrome",
+    },
+
+    "custom/browser": {
+	 "format": "",
+         "tooltip": false,
+         "on-click": "exec firefox",
+    },
+
+    "custom/vscode": {
+         "format": "",
+         "tooltip": false,
+         "on-click": "exec firefox 0.0.0.0:8080",
+    },
+
+    "custom/filesearch": {
+         "format": "",
+         "tooltip": false,
+         "on-click": "exec nautilus",
+    },
+
+    "custom/opacityup": {
+         "format": "",
+         "tooltip": false,
+         "on-click": "sway opacity plus 0.1",
+    },
+
+    "custom/opacitydown": {
+         "format": "頋",
+         "tooltip": false,
+         "on-click": "sway opacity minus 0.1",
+    },
+
+    "custom/screenshot": {
+         "format": "",
+         "tooltip": false,
+         "on-click": "exec bash etc/waybar1/screenshot.sh",
+    },
+
+    "custom/terminal": {
+         "format": "",
+         "tooltip": false,
+         "on-click": "exec alacritty -o window.opacity=0.8",
+    },
+
+    "custom/terminal2": {
+         "format": "",
+         "tooltip": false,
+         "on-click": "exec bash $HOME/.config/waybar/terminal2.sh",
+    },
+
+    "custom/kill": {
+         "format": "",
+         "tooltip": false,
+         "on-click": "sway kill",
+    },
+
+    "custom/share": {
+         "format": "",
+         "tooltip": false,
+         "on-click": "exec sh $HOME/.config/waybar/shared.sh",
+    },
+
+    "custom/power": {
+         "format": "襤",
+         "tooltip": false,
+         "on-click": "alacritty -e $HOME/.local/share/bin/fzf-power-menu",
+    },
+
+	// waybar-disk
+	// waybar-idle-inhibitor
+	// waybar-inhibitor
+	// waybar-keyboard-state
+	// waybar-memory
+
+	// waybar-mpd
+    "mpd": {
+        "interval": 1,
+        "unknown-tag": "N/A",
+        "format": "{stateIcon}",
+        "format-disconnected": "",
+        "format-paused": "{stateIcon}",
+        "format-stopped": "",
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "{artist} - {title} | 祥 {elapsedTime:%M:%S}",
+        "tooltip-format-disconnected": "MPD (disconnected)",
+		// Commands to execute on events
+        "on-click": "mpc toggle",
+        "on-scroll-up": "mpc seek +00:00:01",
+        "on-scroll-down": "mpc seek -00:00:01",
+        "smooth-scrolling-threshold": 1,
+    },
+    "mpd#2": {
+        "interval": 1,
+        "format": "玲",
+        "format-disconnected": "玲",
+        "format-paused": "玲",
+        "format-stopped": "玲",
+        "tooltip-format": "{artist} - {title} | 祥 {elapsedTime:%M:%S}",
+        "tooltip-format-disconnected": "MPD (disconnected)",
+		// Commands to execute on events
+        "on-click": "mpc prev",
+        "on-scroll-up": "mpc seek +00:00:01",
+        "on-scroll-down": "mpc seek -00:00:01",
+        "smooth-scrolling-threshold": 1,
+    },
+    "mpd#3": {
+        "interval": 1,
+        "format": "怜",
+        "format-disconnected": "怜",
+        "format-paused": "怜",
+        "format-stopped": "怜",
+        "tooltip-format": "{artist} - {title} | 祥 {elapsedTime:%M:%S}",
+        "tooltip-format-disconnected": "MPD (disconnected)",
+		// Commands to execute on events
+        "on-click": "mpc next",
+        "on-scroll-up": "mpc seek +00:00:01",
+        "on-scroll-down": "mpc seek -00:00:01",
+        "smooth-scrolling-threshold": 1,
+    },
+
+	// waybar-network
+    "network": {
+		"interval": 5,
+        //"interface": "wlan*", // (Optional) To force the use of this interface, set it for netspeed to work
+        "format-wifi": "直",
+        "format-ethernet": "",
+        "format-linked": "",
+        "format-disconnected": "睊",
+        "format-disabled": "睊",
+        "tooltip-format": "{essid} :  {bandwidthUpBits} |  {bandwidthDownBits}",
+        "on-click": "exec gnome-control-center",
+        "on-click-right": "[[ ! `pidof nm-connection-editor` ]] && nm-connection-editor || pkill nm-connection-e",
+    },
+
+	// waybar-pulseaudio
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-muted": "婢",
+        "format-bluetooth": "",
+        "format-bluetooth-muted": "",
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "ﳌ",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["奄", "奔", "墳"]
+        },
+        "scroll-step": 5.0,
+        "on-click": "amixer set Master toggle",
+        "on-click-right": "pavucontrol",
+        "smooth-scrolling-threshold": 1,
+    },
+    "pulseaudio#2": {
+        "format": "{volume}%",
+        "format-muted": "Mute",
+        "format-bluetooth": "{volume}%",
+        "format-bluetooth-muted": "Mute",
+        "format-source": "{volume}%",
+        "scroll-step": 5.0,
+        "on-click": "amixer set Master toggle",
+        "on-click-right": "pavucontrol",
+        "smooth-scrolling-threshold": 1,
+    },
+
+	// waybar-river-tags
+    "river/tags": {
+        "num-tags": 9,
+        "tag-labels": ["", "", "", "", "", "漣", "", "", ""],
+        "disable-click": false,
+    },
+           
+	// waybar-river-window
+    "river/window": {
+        "format": "{}",
+		"align": 0,
+		"rotate": 0,
+		"max-length": 0,
+		"min-length": 0,
+    },
+           
+	// waybar-sndio
+	// waybar-states
+	// waybar-sway-language
+
+	// waybar-sway-mode
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+
+	// waybar-sway-window
+    "sway/window": {
+        "format": "{}",
+        "max-length": 50,
+        "icon": false,
+    },
+
+	// waybar-sway-workspaces
+    "sway/workspaces": {
+         "disable-scroll": false,
+         "disable-click": false,
+         "all-outputs": true,
+         "format": "{icon}",
+         "format-icons": {
+             "1": "",
+             "2": "",
+             "3": "",
+             "4": "",
+             "5": "",
+             "6": "漣",
+             "7": "",
+             "8": "",
+             "9": "",
+             "10": "ﳴ",
+             "urgent": "",
+             "focused": "",
+             "default": ""
+         },
+        "smooth-scrolling-threshold": 1,
+        "disable-scroll-wraparound": false,
+        "enable-bar-scroll": false,
+        "disable-markup": false,
+        "current-only": false,
+    },
+
+	// waybar-temperature
+
+	// waybar-tray
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8,
+    },
+
+	// waybar-wlr-taskbar
+    "wlr/taskbar": {
+         "format": "{icon}",
+         "all-outputs": false,
+         "active-first": false,
+         "icon-size": 24,
+         "icon-theme": "Zafiro",
+         "tooltip-format": "{title}",
+         //"ignore-list": [
+         //    "Alacritty"
+         //],
+         "app_ids-mapping": {
+              "firefoxdeveloperedition": "firefox-developer-edition"
+         },
+         "on-click": "minimize-raise",
+         "on-click-middle": "close",
+         "on-click-right": "maximize",
+         "on-update": "",
+    },
+    
+	// waybar-wlr-workspaces
+    "wlr/workspaces": {
+         "format": "{icon}",
+         "format-icons": {
+             "1": "",
+             "2": "",
+             "3": "",
+             "4": "",
+             "5": "",
+             "6": "漣",
+             "7": "",
+             "8": "",
+             "9": "",
+             "10": "ﳴ",
+             "urgent": "",
+             "focused": "",
+             "default": ""
+         }
+    }
+}
