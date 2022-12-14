@@ -7,7 +7,7 @@
     "name": "top-bar",                  // Waybar name
     "id": "top-bar",                            // Waybar id
     "layer": "top",                             // Waybar at top layer
-    "mode": "dock",                             // Display mode (dock|hide|invisible|overlay)
+    "mode": "hide",                             // Display mode (dock|hide|invisible|overlay)
     "exclusive": true,                          // Request an exclusive zone from the compositor
     "passthrough": false,                       // Pass any pointer events to the window under the bar
     "position": "top",                  // Waybar position (top|bottom|left|right)
