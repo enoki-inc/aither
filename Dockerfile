@@ -121,10 +121,7 @@ RUN mkdir -p /etc/noVNC && \
     mv /noVNC/* /etc/noVNC && \
     git clone https://github.com/novnc/websockify.git /etc/noVNC/utils/websockify
     
-COPY ./config/sway/config /etc/sway/config
-COPY ./config/waybar /etc/waybar
-COPY ./config/wayvnc/config /etc/wayvnc/config
-COPY ./config/alacritty /etc/alacritty
+COPY ./config /etc
 
 EXPOSE 6080-6090
 EXPOSE 8080
