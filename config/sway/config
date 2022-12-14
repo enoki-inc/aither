@@ -89,7 +89,7 @@ set $wallpaper etc/sway/wallpaper.png
 exec swaybg -i $wallpaper -m fill -o "*"
 #exec ~/.azotebg
 # Wallpaper fallback
-exec swaybg -c '#000000'
+#exec swaybg -c '#000000'
 
 # Notification system
 #exec mako --config ~/.config/mako/config
