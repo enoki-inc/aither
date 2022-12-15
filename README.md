@@ -39,7 +39,6 @@ copy the generated ephemeral key into the `tailscale.env` file within the `aithe
 + TAILSCALE_AUTH_KEY=<your key here>
 ```
 ```bash
-sudo docker-compose build --no-cache
 sudo docker-compose up -d
 sudo docker-compose exec tailscale tailscale up --authkey=$TAILSCALE_AUTH_KEY
 `````
