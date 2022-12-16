@@ -7,7 +7,7 @@
 
 # Aither - Browser-Based Multiplayer Desktop Environment
 
-Aither is the browser-based version of our containerized multiplayer desktop environment Aither. By utilizing tailscale, we can make this desktop accessible in the web browser of any user on the same tailscale network that it is authenticated to.
+Aither is the browser-based version of our containerized multiplayer desktop environment Aither. By utilizing tailscale, we can make this desktop accessible in the web browser of any user on the same tailscale network that it is authenticated to. We have added a sidecar container that allows for accessing the contents of any s3 bucket directly through Aither.
 
 Check out our image on dockerhub: https://hub.docker.com/r/enokiinc/aither
 
@@ -28,8 +28,15 @@ Docker Compose: https://docker-docs.netlify.app/compose/install/
 
 open terminal and run 
 ```bash
-git clone https://github.com/enoki-inc/aither.git
+git clone --branch aither-storage https://github.com/enoki-inc/aither.git
 cd aither
+```````
+within the `docker-compose.yaml` file, update these environment variables under the s3fs service with your specific values:
+```bash
+AWS_S3_BUCKET: '<BUCKET_NAME>'
+AWS_S3_ACCESS_KEY_ID: '<ACCESS_KEY_ID>'
+AWS_S3_SECRET_ACCESS_KEY: '<SECRET_ACCESS_KEY_ID>'
+AWS_S3_MOUNT: '/opt/s3fs/bucket'
 ```````
 within your account on tailscale's website, navigate to the auth keys page of the admin console to retrieve an emphemeral key (screenshot below) \
 <img src="https://tailscale.com/kb/1132/flydotio/ephemeral-keys.png" width="450" height="450"> \
@@ -56,6 +63,8 @@ while user2 can connect by navigating to this url:
 ```bash
 <tailscale_ip>:6081/vnc.html
 `````
+Your s3 bucket files can now also be accessed in the 's3' folder within Aither
+
 ### NOTE: If you have slow internet speed, you can improve Aither performance by reducing quality and maximizing compression in noVNC settings.
 
 ## 🔑 Keybinds 
