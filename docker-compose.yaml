@@ -26,6 +26,32 @@ services:
       - 8080:8080
     command: tailscaled
 
+  s3fs:
+    container_name: s3fs
+    privileged: true
+    image: efrecon/s3fs:1.91
+    restart: unless-stopped
+    cap_add:
+      - SYS_ADMIN
+    security_opt:
+      - 'apparmor:unconfined'
+    devices:
+      - /dev/fuse
+    volumes:
+      - './bucket:/opt/s3fs/bucket:rshared'
+    environment:
+      AWS_S3_BUCKET: '<BUCKET_NAME>'
+      AWS_S3_ACCESS_KEY_ID: '<ACCESS_KEY_ID>'
+      AWS_S3_SECRET_ACCESS_KEY: '<SECRET_ACCESS_KEY_ID>'
+      AWS_S3_MOUNT: '/opt/s3fs/bucket'
+      S3FS_ARGS: ''
+      S3FS_DEBUG: 0
+      UID: 1000
+      GID: 1000
+    depends_on:
+      - aither
+    network_mode: service:tailscale
+
   aither:
     image: enokiinc/aither
 #    build: .
@@ -44,6 +70,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock #optional
       - $XDG_RUNTIME_DIR/$WAYLAND_DISPLAY:/home/1000/$WAYLAND_DISPLAY
+      - ./bucket:/s3:rshared
 #    ports:
 #      - 6080:6080
 #      - 6081:6081
