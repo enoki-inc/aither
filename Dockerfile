@@ -68,7 +68,8 @@ RUN apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/ma
      
 RUN apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing \
     clipman \
-    ossp-uuid
+    ossp-uuid \
+    glow
     
 RUN apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community \
     alacritty \
