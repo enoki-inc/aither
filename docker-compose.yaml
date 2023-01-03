@@ -27,8 +27,8 @@ services:
     command: tailscaled
 
   aither:
-    image: enokiinc/aither
-#    build: .
+   # image: enokiinc/aither
+    build: .
     container_name: aither-baseimage
     privileged: true #optional
     environment:
