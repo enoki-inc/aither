@@ -13,7 +13,7 @@
 - You can take screenshots with the camera button
 - You can close windows with the very last button on the sidebar
 
-## Navigation :snake:
+## Key Binds :snake:
 
 Terminal: You can access me quickly with Alt+Shift+Enter
 - You can resize me with Alt+Shift+arrow keys
@@ -21,5 +21,17 @@ Terminal: You can access me quickly with Alt+Shift+Enter
 - You can put me in tabular mode with Alt+Tab
 - You can put me in full screen mode with Alt+F
 - You can exit full screen mode with Alt+Shift+F
+
+## 🔑 Key Binds Summary 
+These are basic keybinds for Aither:
+|        Keybind         |                 Function                 |
+| ---------------------- | ---------------------------------------- |
+| `Alt + drag window`    | move window around while holding Alt key                |
+| `Alt + H/J/K/L`        | move focused floating window left/down/up/right        |
+| `Alt + left/down/up/right`      | move focused floating window left/down/up/right                      |
+| `Alt + Shift + H/J/K/L`              | move focus around left/down/up/right                 |
+| `Alt + Shift + down/up`              | shrink/grow focused floating window vertically               |
+| `Alt + Shift + left/right`           | shrink/grow focused floating window horizontally                              |
+| `Alt + 1>9`     | mark window for seat1>9 for specific border colors                         |
 
 ## All these commands work for any other window as well!
