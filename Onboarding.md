@@ -22,7 +22,7 @@ Terminal: You can access me quickly with Alt+Shift+Enter
 - You can put me in full screen mode with Alt+F
 - You can exit full screen mode with Alt+Shift+F
 
-## 🔑 Key Binds Summary 
+## Key Binds Summary 🔑 
 These are basic keybinds for Aither:
 |        Keybind         |                 Function                 |
 | ---------------------- | ---------------------------------------- |
