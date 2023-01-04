@@ -1,10 +1,10 @@
 # Welcome to Aither! :rocket:
 
-- First things first try scrolling in this window with the J and K keys
+- First things first, try scrolling in this window with the J and K keys
 - You will find your animal inspired seats on the top. Try to change the color of your terminal
 - You will find your app launcher to your left
 
-## User Interface :exploding_head:
+## App Launcher :exploding_head:
 
 - Firefox is the top app in your sidebar and is the default browser on  Aither
 - VSCode is the second app on the sidebar and is the default IDE on Aither
