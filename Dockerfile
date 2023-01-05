@@ -42,7 +42,20 @@ RUN apt-get update && apt-get install -y \
     procps \
     bash \
     curl \
-    cargo
+    cargo \
+    cmake \
+    snapd \
+    wget \
+    libfreetype6-dev \
+    libfontconfig1-dev \
+    xorg-dev \
+    pkg-config
+
+RUN git clone https://github.com/alacritty/alacritty.git
+
+RUN cd alacritty && \
+    cargo build --release && \
+    cp target/release/alacritty /usr/local/bin/
 
 # Install elogind
 #RUN apt-get update && apt-get install -y \
