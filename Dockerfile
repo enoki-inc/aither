@@ -40,8 +40,22 @@ RUN apk add \
     docker \
     procps \
     bash \
-    curl 
+    curl \
+    cargo \
+    cmake \
+    snapd \
+    wget \
+    libfreetype6-dev \
+    libfontconfig1-dev \
+    xorg-dev \
+    pkg-config
 
+RUN git clone https://github.com/alacritty/alacritty.git
+
+RUN cd alacritty && \
+    cargo build --release && \
+    cp target/release/alacritty /usr/local/bin/
+    
 RUN apk update \
     elogind
 
