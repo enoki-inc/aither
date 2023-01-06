@@ -128,7 +128,10 @@ RUN npm install --global minimist \
                          vscode-proxy-agent \
                          vscode-regexpp \
                          keytar
-                         
+
+RUN curl -L https://go.microsoft.com/fwlink/?LinkID=760868 -o vscode.deb && \
+    dpkg -i vscode.deb
+    
 # Create a user and give it passwordless sudo privileges
 ENV USER="dev"
 RUN adduser --disabled-password --gecos "" $USER && \
