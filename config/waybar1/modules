@@ -98,7 +98,7 @@
     "custom/vscode": {
          "format": "",
          "tooltip": false,
-         "on-click": "exec firefox 0.0.0.0:8080",
+         "on-click": "exec code",
     },
 
     "custom/filesearch": {
