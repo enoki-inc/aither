@@ -11,7 +11,7 @@ Aither is the browser-based version of our containerized multiplayer desktop env
 
 Check out our image on dockerhub: https://hub.docker.com/r/enokiinc/aither
 
-<img src="https://github.com/enoki-inc/aither/blob/66e1b3da29111920ee5825629ce89e4ea4d84275/Aither%20Desktop.jpg">
+<img src="https://github.com/enoki-inc/aither/blob/main/Aither%20NeoFetch.jpg?raw=true">
 
 ## 🚀 Installation
 
