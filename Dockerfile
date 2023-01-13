@@ -72,8 +72,19 @@ RUN apt-get install -y \
     waybar \
     wayvnc \
     geany \
-    nautilus \
-    firefox
+    nautilus
+
+RUN apt-get install -y software-properties-common && apt-get update && add-apt-repository ppa:mozillateam/ppa -y && echo '\n\
+Package: *\n\
+Pin: release o=LP-PPA-mozillateam\n\
+Pin-Priority: 1001\n\
+\n\
+Package: firefox\n\
+Pin: version 1:1snap1-0ubuntu2\n\
+Pin-Priority: -1\n\
+' | sudo tee /etc/apt/preferences.d/mozilla-firefox
+RUN echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";' | sudo tee /etc/apt/apt.conf.d/51unattended-upgrades-firefox
+RUN  apt install -y firefox firefox-geckodriver
 
 # Install clipman, ossp-uuid, and glow from edge repositories
 RUN apt-get install -y \
