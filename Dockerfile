@@ -1,5 +1,10 @@
 FROM ubuntu:latest
 
+ENV XDG_RUNTIME_DIR=/tmp \
+    WLR_BACKENDS=headless \
+    WLR_LIBINPUT_NO_DEVICES=1 \
+    SWAYSOCK=/tmp/sway-ipc.sock
+    
 # Update package lists and install build dependencies
 RUN apt-get update && apt-get install -y \
     build-essential \
@@ -140,10 +145,6 @@ RUN curl -L https://go.microsoft.com/fwlink/?LinkID=760868 -o vscode.deb && \
     
 # Create a user and give it passwordless sudo privileges
 ENV USER="dev"
-ENV XDG_RUNTIME_DIR=/tmp \
-    WLR_BACKENDS=headless \
-    WLR_LIBINPUT_NO_DEVICES=1 \
-    SWAYSOCK=/tmp/sway-ipc.sock
     
 RUN adduser --disabled-password --gecos "" $USER && \
     adduser $USER sudo && \
