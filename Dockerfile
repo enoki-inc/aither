@@ -49,8 +49,15 @@ RUN apt-get update && apt-get install -y \
     libfreetype6-dev \
     libfontconfig1-dev \
     xorg-dev \
-    pkg-config
+    pkg-config \
+    fontconfig \
+    unzip
 
+RUN curl -LJO https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/JetBrainsMono.zip && \
+    unzip JetBrainsMono.zip -d /etc/fonts && \
+    mv /etc/fonts/*.ttf /usr/local/share/fonts/ && \
+    fc-cache -f -v
+    
 RUN git clone https://github.com/alacritty/alacritty.git
 
 RUN cd alacritty && \
