@@ -27,8 +27,8 @@ services:
     command: tailscaled
 
   aither:
-    image: enokiinc/aither
-#    build: .
+#    image: enokiinc/aither
+    build: .
     container_name: aither-baseimage
     privileged: true #optional
     environment:
@@ -37,6 +37,7 @@ services:
       - WLR_BACKENDS=headless
       - WLR_LIBINPUT_NO_DEVICES=1 
       - --user= dev
+      - TEAM_NAME=enoki
     command: dbus-run-session -- sway
     user: dev
     tty: true
@@ -44,6 +45,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock #optional
       - $XDG_RUNTIME_DIR/$WAYLAND_DISPLAY:/home/1000/$WAYLAND_DISPLAY
+      - /Users/sergionahas/enoki/storage
 #    ports:
 #      - 6080:6080
 #      - 6081:6081
