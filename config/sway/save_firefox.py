@@ -6,11 +6,14 @@ import json
 path = pathlib.Path.home().joinpath('.mozilla/firefox')
 files = path.glob('*default*/sessionstore-backups/recovery.js*')
 
+team_name = os.getenv('TEAM_NAME')
+workspace_name = os.getenv('WORKSPACE_NAME')
+
 try:
     template = sys.argv[1]
 except IndexError:
     template = '%s\n'
-with open('/Users/sergionahas/enoki/storage/urls.txt', 'w') as file:
+with open(team_name + '/' + workspace_name + '/temp/urls.txt', 'w') as file:
     for f in files:
         b = f.read_bytes()
         if b[:8] == b'mozLz40\0':
