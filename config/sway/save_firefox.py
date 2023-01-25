@@ -16,7 +16,7 @@ try:
     template = sys.argv[1]
 except IndexError:
     template = '%s\n'
-with open('/' + team_name + '/' + workspace_name + '/temp/urls.txt', 'w') as file:
+with open(filepath, 'w') as file:
     for f in files:
         b = f.read_bytes()
         if b[:8] == b'mozLz40\0':
