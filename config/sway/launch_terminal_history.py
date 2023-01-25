@@ -1,11 +1,13 @@
-import subprocess
 import os
+import subprocess
 
 team_name = os.getenv('TEAM_NAME')
 workspace_name = os.getenv('WORKSPACE_NAME')
+filepath = '/' + team_name + '/' + workspace_name + '/tmp/history.txt'
+command = "cp ~/.ash_history " + filepath
 
-# Saving the contents of history.txt to the ash_history file
-subprocess.run(['cat' + '/' + team_name + '/' + workspace_name + '/temp/history.txt' + '>> ~/.ash_history'], shell=True)
+if not os.path.exists(os.path.dirname(filepath)):
+    os.makedirs(os.path.dirname(filepath), exist_ok=True)
 
-# Reloading the ash_history file
-subprocess.run(['source ~/.ash_history'], shell=True)
+#shutil.copyfile("~/.ash_history", filepath)
+subprocess.run([command], shell=True)
