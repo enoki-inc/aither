@@ -9,5 +9,4 @@ command = "cp ~/.ash_history " + filepath
 if not os.path.exists(os.path.dirname(filepath)):
     os.makedirs(os.path.dirname(filepath), exist_ok=True)
 
-#shutil.copyfile("~/.ash_history", filepath)
 subprocess.run([command], shell=True)
