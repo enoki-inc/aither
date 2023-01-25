@@ -211,12 +211,12 @@ seat seat8 attach "8"
 seat seat9 attach "9"
 seat seat10 attach "10"
 
-exec swayidle -w timeout 60 'python3 ./save_firefox.py'
-exec swayidle -w timeout 60 'python3 ./save_terminal_history.py'
+exec swayidle -w timeout 60 'python3 etc/sway/save_firefox.py'
+exec swayidle -w timeout 60 'python3 etc/sway/save_terminal_history.py'
 exec swayidle -w timeout 600 'sudo poweroff -f'
 
-exec "python3 ./launch_firefox.py"
-exec "python3 ./launch_terminal_history.py"
+exec "python3 etc/sway/launch_firefox.py"
+exec "python3 etc/sway/launch_terminal_history.py"
 
 set $ip 0.0.0.0  
 exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat0 $ip 5900
