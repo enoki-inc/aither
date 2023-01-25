@@ -128,7 +128,7 @@
     "custom/terminal": {
          "format": "",
          "tooltip": false,
-         "on-click": "exec alacritty -o window.opacity=0.8",
+         "on-click": "exec alacritty -o window.opacity=0.8 --working-directory $TEAM_NAME/$WORKSPACE_NAME",
     },
 
     "custom/terminal2": {
