@@ -1,7 +1,13 @@
-import subprocess
 import os
+import subprocess
 
 team_name = os.getenv('TEAM_NAME')
 workspace_name = os.getenv('WORKSPACE_NAME')
+filepath = '/' + team_name + '/' + workspace_name + '/tmp/history.txt'
+command = "cp ~/.ash_history " + filepath
 
-subprocess.run(['history', '-a', '>', '/' + team_name + '/' + workspace_name + '/temp/history.txt'])
+if not os.path.exists(os.path.dirname(filepath)):
+    os.makedirs(os.path.dirname(filepath), exist_ok=True)
+
+subprocess.run([command], shell=True)
+
