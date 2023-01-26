@@ -40,7 +40,8 @@ RUN apk add \
     docker \
     procps \
     bash \
-    curl 
+    curl \
+    py3-lz4
 
 RUN apk update \
     elogind
