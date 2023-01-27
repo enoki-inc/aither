@@ -38,6 +38,7 @@ services:
       - WLR_LIBINPUT_NO_DEVICES=1 
       - --user= dev
       - TEAM_NAME=enoki
+      - WORKSPACE_NAME=workspace_1
     command: dbus-run-session -- sway
     user: dev
     tty: true
@@ -45,7 +46,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock #optional
       - $XDG_RUNTIME_DIR/$WAYLAND_DISPLAY:/home/1000/$WAYLAND_DISPLAY
-      - /Users/sergionahas/enoki/storage
+      - ./storage:/enoki/workspace_1
 #    ports:
 #      - 6080:6080
 #      - 6081:6081
