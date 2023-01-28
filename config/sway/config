@@ -213,7 +213,7 @@ seat seat10 attach "10"
 
 exec swayidle -w timeout 60 'python3 etc/sway/save_firefox.py'
 exec swayidle -w timeout 60 'python3 etc/sway/save_terminal_history.py'
-exec swayidle -w timeout 600 'sudo poweroff -f'
+exec swayidle -w timeout 600 'swaymsg exit'
 
 exec "python3 etc/sway/launch_firefox.py"
 exec "python3 etc/sway/launch_terminal_history.py"
