@@ -118,8 +118,8 @@ RUN adduser -D $USER && echo "$USER ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/wh
 RUN echo "dev:dev" | chpasswd
 
 RUN mkdir -p /etc/noVNC && \
-    git clone https://github.com/novnc/noVNC.git && \
-    mv /noVNC/* /etc/noVNC && \
+    git clone https://github.com/enoki-inc/enoVNC.git && \
+    mv /enoVNC/* /etc/noVNC && \
     git clone https://github.com/novnc/websockify.git /etc/noVNC/utils/websockify
     
 COPY ./config /etc
