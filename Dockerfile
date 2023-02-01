@@ -1,4 +1,4 @@
-FROM archlinux/base:latest
+FROM archlinux:latest
 
 ENV XDG_RUNTIME_DIR=/tmp \
     WLR_BACKENDS=headless \
@@ -17,30 +17,30 @@ RUN pacman -S --noconfirm \
     pixman \
     udev \
     ttf-dejavu \
-    sway sway-doc \
-    xwayland \
+#    sway \
+#    sway-doc \
+    xorg-xwayland \
     dbus \
     foot \
     bemenu \
     dmenu \
     epiphany \
     swaylock \
-    swaylockd \
     swaybg \
     swayidle \
-    elogind \
+#    elogind \
     python \
     python-pip \
-    numpy \
+    python-numpy \
     docker \
     procps-ng \
     bash \
     curl
 
-RUN pacman -Syu --noconfirm elogind
+#RUN pacman -Syu --noconfirm elogind
 
 RUN pacman -S --noconfirm \
-    font-jetbrains-mono-nerd \
+    ttf-jetbrains-mono-nerd \
     noto-fonts \
     git \
     fzf \
@@ -49,23 +49,18 @@ RUN pacman -S --noconfirm \
     openssl \
     sudo \
     waybar \
-    wayvnc \
+#    wayvnc \
     geany \
     nautilus \
-    firefox
+    firefox \
+    alacritty
 
 # Install our modified sway that extends per-container border colors and custom mouse cursors
 RUN mkdir -p /etc/aither-tools && \
     curl -o /tmp/aither-tools.tar.gz -L "https://github.com/enoki-inc/aither-tools/archive/refs/tags/1.1.tar.gz" && \
     tar xf /tmp/aither-tools.tar.gz -C /etc/aither-tools --strip-components=1 && \
     mv /etc/aither-tools/Bibata-Cursors/* /usr/share/icons
-
-RUN pacman -U --noconfirm \
-    /etc/aither-tools/packages/sway-aither-1.7.1-r4.apk \
-    /etc/aither-tools/packages/sway-aither-doc-1.7.1-r4.apk \
-    /etc/aither-tools/packages/sway-aither-dbg-1.7.1-r4.apk \
-    /etc/aither-tools/packages/sway-aither-wallpapers-1.7.1-r4.apk
-    
+  
 RUN mkdir -p /etc/sway-launcher-desktop && \
     curl -o /tmp/sway-launcher-desktop.tar.gz -L "https://github.com/Biont/sway-launcher-desktop/archive/refs/tags/v1.6.0.tar.gz" && \
     tar xf /tmp/sway-launcher-desktop.tar.gz -C /etc/sway-launcher-desktop --strip-components=1
@@ -86,5 +81,16 @@ EXPOSE 6080-6090
 EXPOSE 8080
 
 USER $USER
+
+RUN git clone https://aur.archlinux.org/yay.git /tmp/yay && \
+    cd /tmp/yay && \
+    makepkg -si --noconfirm && \
+    cd / && \
+    rm -rf /tmp/yay
+    
+RUN yay -Sy --noconfirm \
+    swayfx \
+    wayvnc-git
+
 COPY entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
