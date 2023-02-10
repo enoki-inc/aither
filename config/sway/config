@@ -211,11 +211,11 @@ seat seat8 attach "8"
 seat seat9 attach "9"
 seat seat10 attach "10"
 
-exec swayidle -w timeout 60 'python3 etc/sway/save_firefox.py'
+#exec swayidle -w timeout 60 'python3 etc/sway/save_firefox.py'
 exec swayidle -w timeout 60 'python3 etc/sway/save_terminal_history.py'
-exec swayidle -w timeout 600 'swaymsg exit'
+exec swayidle -w timeout 10800 'swaymsg exit'
 
-exec "python3 etc/sway/launch_firefox.py"
+#exec "python3 etc/sway/launch_firefox.py"
 exec "python3 etc/sway/launch_terminal_history.py"
 
 set $ip 0.0.0.0  
