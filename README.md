@@ -31,7 +31,7 @@ open terminal and run
 git clone https://github.com/enoki-inc/aither.git
 cd aither
 ```````
-within your account on tailscale's website, navigate to the auth keys page of the admin console to retrieve an emphemeral key (screenshot below) \
+within your account on tailscale's website, navigate to the auth keys page of the admin console to retrieve an ephemeral key (screenshot below) \
 <img src="https://tailscale.com/kb/1132/flydotio/ephemeral-keys.png" width="450" height="450"> \
 copy the generated ephemeral key into the `tailscale.env` file within the `aither` folder
 ```diff
