@@ -5,81 +5,58 @@
 [![Twitter](https://img.shields.io/static/v1.svg?color=FBBC04&labelColor=003E8A&logoColor=ffffff&style=for-the-badge&label=enoki-inc&message=twitter)](https://twitter.com/Enoki_Inc "check out our twitter page!")
 [![Linkedin](https://img.shields.io/static/v1.svg?color=FBBC04&labelColor=003E8A&logoColor=ffffff&style=for-the-badge&label=enoki-inc&message=linkedin)](https://linkedin.com/company/enoki-inc/ "check out our linkedin page!")
 
-# Aither - Browser-Based Multiplayer Desktop Environment
+# Aither
 
-Aither is the browser-based version of our containerized multiplayer desktop environment Aither. By utilizing tailscale, we can make this desktop accessible in the web browser of any user on the same tailscale network that it is authenticated to.
+Aither let's you work on software development projects on a browser based full Linux desktop experience powered by ChatGPT and Github Copilot. Sharing your desktop is as easy as running two terminal commands.
 
 Check out our image on dockerhub: https://hub.docker.com/r/enokiinc/aither
 
-<img src="https://github.com/enoki-inc/aither/blob/main/Aither%20NeoFetch.jpg?raw=true">
-
-## 🚀 Installation
-
-### Before starting, please make sure you have created a tailscale account and have docker and docker-compose installed on the machine you're hosting Aither on.
-Tailscale: https://tailscale.com/ \
-Docker: https://docker-docs.netlify.app/install/ \
-Docker Compose: https://docker-docs.netlify.app/compose/install/
-
-### Here is a demo showcasing the installation: 
-
+## 🚀 Usage
+Check out how to use Aither! \
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/Z7jxQPwqZGc/0.jpg)](http://www.youtube.com/watch?v=Z7jxQPwqZGc "Z7jxQPwqZGc")
 
-### In order to get Aither up and running, please follow these instructions:
+Try it out at https://enoki.so
 
-open terminal and run 
+### Running locally
+All you need is docker installed: 
+Docker: https://docker-docs.netlify.app/install/ \
+
+To run locally, clone the repository and run the following:
 ```bash
-git clone https://github.com/enoki-inc/aither.git
-cd aither
+sudo docker build -t enoki-base -f Dockerfile .
+
+sudo docker run --name enoki-base \
+--privileged \
+-e XDG_RUNTIME_DIR=/home/dev \
+-e XDG_CACHE_HOME=/home/dev \
+-e XDG_CONFIG_HOME=/home/dev/.cache \
+-e WAYLAND_DISPLAY=$WAYLAND_DISPLAY \
+-e WLR_BACKENDS=headless \
+-e WLR_LIBINPUT_NO_DEVICES=1 \
+-e TEAM_NAME=enoki \
+-e WORKSPACE_NAME=test-workspace \
+-e USERS=2 \
+-e --user=dev \
+-v /var/run/docker.sock:/var/run/docker.sock \
+-v $XDG_RUNTIME_DIR/$WAYLAND_DISPLAY:/home/1000/$WAYLAND_DISPLAY \
+-p 6080:6080 \
+-p 6081:6081 \
+--rm  enoki-base dbus-run-session -- sway
 ```````
-within your account on tailscale's website, navigate to the auth keys page of the admin console to retrieve an emphemeral key (screenshot below) \
-<img src="https://tailscale.com/kb/1132/flydotio/ephemeral-keys.png" width="450" height="450"> \
-copy the generated ephemeral key into the `tailscale.env` file within the `aither` folder
-```diff
-- TAILSCALE_AUTH_KEY=
-+ TAILSCALE_AUTH_KEY=<your key here>
-```
+Now you can access the desktop at `0.0.0.0:6080/vnc.html` in your browser
+
+### Sharing your desktop
+
+To share your desktop with someone, first retrieve your free authtoken from ngrok (https://dashboard.ngrok.com/get-started/your-authtoken) and run the following within the terminal of Aither:
 ```bash
-sudo docker-compose up -d
-sudo docker-compose exec tailscale tailscale up --authkey=$TAILSCALE_AUTH_KEY
-`````
-access the desktop container within the browser through ports `6080-6090` on any device that is authenticated on the same tailscale network using the url below:
-```diff
-- 0.0.0.0:<6080-6090>/vnc.html
-+ <tailscale_ip>:<6080-6090>/vnc.html
-```
-\
-Each port is mapped to a different seat, so multiple users can work simultaneously on the containerized desktop, as long as they are accessing the desktop on different ports. For example, user1 can access aither web through this url:
-```bash
-<tailscale_ip>:6080/vnc.html
-`````
-while user2 can connect by navigating to this url: 
-```bash
-<tailscale_ip>:6081/vnc.html
-`````
-### NOTE: If you have slow internet speed, you can improve Aither performance by reducing quality and maximizing compression in noVNC settings.
+ngrok config add-authtoken <authtoken>
+ngrok http 6081
+```````
+You'll see an ngrok url generated. Share this with your friend and they will have access to your desktop at `<ngrok_url>/vnc_lite.html`. You'll now be able to collaborate together in real-time!
 
-## 🔑 Keybinds 
-These are basic keybinds for Aither:
-|        Keybind         |                 Function                 |
-| ---------------------- | ---------------------------------------- |
-| `Alt + drag window`    | move window around while holding Alt key                |
-| `Alt + H/J/K/L`        | move focused floating window left/down/up/right        |
-| `Alt + left/down/up/right`      | move focused floating window left/down/up/right                      |
-| `Alt + Shift + H/J/K/L`              | move focus around left/down/up/right                 |
-| `Alt + Shift + down/up`              | shrink/grow focused floating window vertically               |
-| `Alt + Shift + left/right`           | shrink/grow focused floating window horizontally                              |
-| `Alt + 1>9`     | mark window for seat1>9 for specific border colors                         |
+### Using ChatGPT
 
-## 🔨 Troubleshooting
+We enable ChatGPT in Aither using ShellGPT (https://github.com/TheR1D/shell_gpt). 
+In order to use ShellGPT, all you need to do is retrieve your `OPENAI_API_KEY` from https://platform.openai.com/account/api-keys and pass it in as an environment variable in the `docker run` command. 
 
-1) What if I get a `permission denied` error on `entrypoint.sh` when running `sudo docker-compose up -d`? \
-You'll need to make the file executable on your local machine. On the command line, `cd` into the `aither` folder and run: 
-```bash
-sudo chmod +x entrypoint.sh
-`````
-2) When viewing Aither through vnc on my mac, why do some of my bindsym shortcuts not work? \
-Certain bindsym shortcuts for aither might not work when viewing aither on a mac vnc viewer due to certain macOS key shortcuts.
-
-## ⏳ Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=enoki-inc/aither&type=Date)](https://star-history.com/#enoki-inc/aither&Date)
+You'll now be able to use ShellGPT in the terminal.
