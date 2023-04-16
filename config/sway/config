@@ -1,6 +1,4 @@
-# Default config for sway-aither
-# Read `man 5 sway` for a complete reference.
-
+# Default config for enoki base workspace
 
 # Base16 Colorscheme, default to solarized 
 set $base00 #002b36
@@ -149,7 +147,7 @@ bindsym Mod1+Shift+Right resize grow width 50
 bindsym Mod1+Shift+q kill
 
 # Spawn an alacritty terminal
-set $host alacritty -o window.opacity=0.8 --config-file /etc/alacritty/host.yml
+set $host alacritty -o window.opacity=0.8 --config-file /etc/alacritty/host.yml --working-directory home/$USER/$TEAM_NAME/$WORKSPACE_NAME
 bindsym Mod1+Shift+Return exec $host
 
 # Toggle opacity
@@ -211,35 +209,14 @@ seat seat8 attach "8"
 seat seat9 attach "9"
 seat seat10 attach "10"
 
-set $ip 0.0.0.0  
-exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat0 $ip 5900
-exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat1 $ip 5901
-exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat2 $ip 5902
-exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat3 $ip 5903
-exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat4 $ip 5904
-exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat5 $ip 5905
-exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat6 $ip 5906
-exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat7 $ip 5907
-exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat8 $ip 5908
-exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat9 $ip 5909
-exec wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat10 $ip 5910
-exec sudo etc/noVNC/utils/novnc_proxy --vnc 0.0.0.0:5900 --listen 6080
-exec sudo etc/noVNC/utils/novnc_proxy --vnc 0.0.0.0:5901 --listen 6081
-exec sudo etc/noVNC/utils/novnc_proxy --vnc 0.0.0.0:5902 --listen 6082
-exec sudo etc/noVNC/utils/novnc_proxy --vnc 0.0.0.0:5903 --listen 6083
-exec sudo etc/noVNC/utils/novnc_proxy --vnc 0.0.0.0:5904 --listen 6084
-exec sudo etc/noVNC/utils/novnc_proxy --vnc 0.0.0.0:5905 --listen 6085
-exec sudo etc/noVNC/utils/novnc_proxy --vnc 0.0.0.0:5906 --listen 6086
-exec sudo etc/noVNC/utils/novnc_proxy --vnc 0.0.0.0:5907 --listen 6087
-exec sudo etc/noVNC/utils/novnc_proxy --vnc 0.0.0.0:5908 --listen 6088
-exec sudo etc/noVNC/utils/novnc_proxy --vnc 0.0.0.0:5909 --listen 6089
-exec sudo etc/noVNC/utils/novnc_proxy --vnc 0.0.0.0:5910 --listen 6090
-exec code-server --bind-addr 0.0.0.0:8080 --auth none
+# Dynamic seats
+exec etc/sway/seats $USERS
 
 #exec socat TCP-LISTEN:7023,fork UNIX-CONNECT:/tmp/sway-ipc.sock
 
 exec waybar --config /etc/waybar/config -s /etc/waybar/style.css
-exec waybar --config /etc/waybar1/config -s /etc/waybar1/style.css
+exec nwg-dock -p "left"
+exec firefox https://github.com/enoki-inc/base-image/blob/main/config/sway/Onboarding.md
 
 
 ## Multiplayer window border colors 
