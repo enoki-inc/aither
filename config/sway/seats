@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# take in number of seats as a flag
+seats=$1
+
+# set the IP address
+ip=0.0.0.0
+
+# loop through number of seats to create the wayvnc lines
+for ((i=0; i<$seats; i++))
+do
+  wayvnc -C /etc/wayvnc/config -o HEADLESS-1 -s seat$i $ip $((5900+i)) &
+done
+
+# loop through number of seats to create the novnc lines
+for ((i=0; i<$seats; i++))
+do
+  etc/noVNC/utils/novnc_proxy --vnc 0.0.0.0:$((5900+i)) --listen $((6080+i)) &
+done
+
+wait
