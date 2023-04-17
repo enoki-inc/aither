@@ -22,9 +22,9 @@ Docker: https://docker-docs.netlify.app/install/ \
 
 To run locally, clone the repository and run the following:
 ```bash
-sudo docker build -t enoki-base -f Dockerfile .
+sudo docker build -t aither -f Dockerfile .
 
-sudo docker run --name enoki-base \
+sudo docker run --name aither \
 --privileged \
 -e XDG_RUNTIME_DIR=/home/dev \
 -e XDG_CACHE_HOME=/home/dev \
