@@ -40,7 +40,7 @@ sudo docker run --name aither \
 -v $XDG_RUNTIME_DIR/$WAYLAND_DISPLAY:/home/1000/$WAYLAND_DISPLAY \
 -p 6080:6080 \
 -p 6081:6081 \
---rm  enoki-base dbus-run-session -- sway
+--rm  aither dbus-run-session -- sway
 ```````
 Now you can access the desktop at `0.0.0.0:6080/vnc.html` in your browser
 
