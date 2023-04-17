@@ -8,7 +8,7 @@
 # Aither
 Aither let's you work on software development projects on a browser based full Linux desktop experience powered by ChatGPT and Github Copilot. Sharing your desktop is as easy as running two terminal commands.
 
-<img src="demo.gif" alt="Demo" width="500">
+<img src="demo.gif" alt="Demo" width="400">
 
 Check out our image on dockerhub: https://hub.docker.com/r/enokiinc/aither
 
@@ -52,6 +52,9 @@ ngrok config add-authtoken <authtoken>
 ngrok http 6081
 ```````
 You'll see an ngrok url generated. Share this with your friend and they will have access to your desktop at `<ngrok_url>/vnc_lite.html`. You'll now be able to collaborate together in real-time!
+
+<img src="share.gif" alt="Demo" width="400">
+
 
 ### Using ChatGPT
 
