@@ -6,14 +6,13 @@
 [![Linkedin](https://img.shields.io/static/v1.svg?color=FBBC04&labelColor=003E8A&logoColor=ffffff&style=for-the-badge&label=enoki-inc&message=linkedin)](https://linkedin.com/company/enoki-inc/ "check out our linkedin page!")
 
 # Aither
-
 Aither let's you work on software development projects on a browser based full Linux desktop experience powered by ChatGPT and Github Copilot. Sharing your desktop is as easy as running two terminal commands.
+
+<img src="demo.gif" alt="Demo" width="500">
 
 Check out our image on dockerhub: https://hub.docker.com/r/enokiinc/aither
 
 ## 🚀 Usage
-Check out how to use Aither! \
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/Z7jxQPwqZGc/0.jpg)](http://www.youtube.com/watch?v=Z7jxQPwqZGc "Z7jxQPwqZGc")
 
 Try it out at https://enoki.so
 
