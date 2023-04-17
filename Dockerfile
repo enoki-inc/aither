@@ -148,7 +148,7 @@ RUN adduser --disabled-password --gecos "" $USER && \
     echo "dev:dev" | chpasswd
 
 RUN mkdir -p /etc/noVNC && \
-    git clone https://github.com/enoki-inc/enoVNC.git && \
+    git clone --branch wss https://github.com/enoki-inc/enoVNC.git && \
     mv /enoVNC/* /etc/noVNC && \
     git clone https://github.com/novnc/websockify.git /etc/noVNC/utils/websockify
     
