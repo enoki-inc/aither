@@ -18,7 +18,7 @@ Try it out at https://enoki.so
 
 ### Running locally
 All you need is docker installed: 
-Docker: https://docker-docs.netlify.app/install/ \
+Docker: https://docs.docker.com/engine/install/ \
 
 To run locally, clone the repository and run the following:
 ```bash
