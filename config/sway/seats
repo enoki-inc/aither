@@ -15,7 +15,7 @@ done
 # loop through number of seats to create the novnc lines
 for ((i=0; i<$seats; i++))
 do
-  etc/noVNC/utils/novnc_proxy --vnc 0.0.0.0:$((5900+i)) --listen $((6080+i)) &
+  etc/noVNC/utils/novnc_proxy --vnc 0.0.0.0:$((5900+i)) --cert /etc/sway/self.pem --ssl-only --listen $((6080+i)) &
 done
 
 wait
