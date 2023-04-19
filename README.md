@@ -42,7 +42,7 @@ sudo docker run --name aither \
 -p 6081:6081 \
 --rm  aither dbus-run-session -- sway
 ```````
-Now you can access the desktop at `0.0.0.0:6080/workspace.html` in your browser
+Now you can access the desktop at `https://0.0.0.0:6080/workspace.html` in your browser. For localhost, Aither uses a self-signed certificate, so you'll be prompted to connect anyway
 
 ### Sharing your desktop
 
