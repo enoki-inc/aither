@@ -42,7 +42,7 @@ sudo docker run --name aither \
 -p 6081:6081 \
 --rm  aither dbus-run-session -- sway
 ```````
-Now you can access the desktop at `https://0.0.0.0:6080/workspace.html` in your browser. For localhost, Aither uses a self-signed certificate, so you'll be prompted to connect anyway
+Now you can access the desktop at `https://0.0.0.0:6080/vnc.html` in your browser. For localhost, Aither uses a self-signed certificate, so you'll be prompted to connect anyway
 
 ### Sharing your desktop
 
@@ -51,7 +51,7 @@ To share your desktop with someone, first retrieve your free authtoken from ngro
 ngrok config add-authtoken <authtoken>
 ngrok http https://0.0.0.0:6081
 ```````
-You'll see an ngrok url generated. Share this with your friend and they will have access to your desktop at `<ngrok_url>/workspace.html`. You'll now be able to collaborate together in real-time!
+You'll see an ngrok url generated. Share this with your friend and they will have access to your desktop at `<ngrok_url>/vnc.html`. You'll now be able to collaborate together in real-time!
 
 <img src="share.gif" alt="Demo" width="400">
 
