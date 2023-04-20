@@ -62,3 +62,8 @@ We enable ChatGPT in Aither using ShellGPT (https://github.com/TheR1D/shell_gpt)
 In order to use ShellGPT, all you need to do is retrieve your `OPENAI_API_KEY` from https://platform.openai.com/account/api-keys and pass it in as an environment variable in the `docker run` command. 
 
 You'll now be able to use ShellGPT in the terminal.
+
+### Mounting local folder to Aither
+If you want to access a local folder within Aither, you can just add this line to the `docker run` command: \
+`-v /path/to/host/volume:/home/dev/localfolder`\
+Just change the path `/path/to/host/volume` to your local folder path
