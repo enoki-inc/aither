@@ -6,9 +6,9 @@
 [![Linkedin](https://img.shields.io/static/v1.svg?color=FBBC04&labelColor=003E8A&logoColor=ffffff&style=for-the-badge&label=enoki-inc&message=linkedin)](https://linkedin.com/company/enoki-inc/ "check out our linkedin page!")
 
 # Aither
-Aither let's you work on software development projects with others on a browser-based full Linux desktop experience powered by ChatGPT and Github Copilot. Sharing your desktop is as easy as running two terminal commands.
+Aither let's you work on software development projects with others on a browser-based full Linux desktop experience powered by ChatGPT and Github Copilot. Sharing your desktop is as easy as running two terminal commands. Each user has equal access to the desktop.
 
-<img src="demo.gif" alt="Demo" width="400">
+<img src="updated_demo.gif" alt="Demo" width="800">
 
 Check out our image on dockerhub: https://hub.docker.com/r/enokiinc/aither
 
