@@ -74,9 +74,9 @@ smart_gaps off
 gaps inner $tiling-inner-gaps
 
 # Borders
-default_border pixel $floating-border-size
-default_floating_border normal
-hide_edge_borders smart
+#default_border pixel $floating-border-size
+#default_floating_border normal
+#hide_edge_borders smart
 
 ##### Autostart behavior #####
 
@@ -181,9 +181,10 @@ bindsym Mod1+Shift+g    resize set 500 500
 bindsym Mod1+period exec makoctl dismiss -a
 
 ### Window settings
-for_window [app_id=".*"] floating enable, border pixel 4,  resize set height 100ppt width 100ppt
+for_window [app_id=".*"] floating enable, border normal,  resize set height 100ppt width 100ppt
+for_window [class=".*"] floating enable, border normal
 #, move window to workspace 1
-for_window [app_id="Alacritty"] floating enable, border pixel 3,  resize set height 800 width 1200
+for_window [app_id="Alacritty"] floating enable, border normal,  resize set height 800 width 1200
 
 # New windows do not capture focus by default
 no_focus [app_id=".*"]
