@@ -160,5 +160,6 @@ EXPOSE 6080-6090
 
 USER $USER
 RUN code --install-extension github.copilot
+RUN code --install-extension ms-vscode-remote.remote-ssh
 
 ENTRYPOINT ["/bin/sh", "-c", "set -o errexit; case \"$1\" in sh|bash) set -- \"$@\" ;; *) set -- sway ;; esac; exec \"$@\"", "--"]
